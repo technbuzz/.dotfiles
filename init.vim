@@ -3,8 +3,11 @@ require('configs')
 require('keymaps')
 require('plugs')
 require('telescope-config')
+require('airline-config')
 require('coc-config')
 EOF
+
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 
 " From thoughbot https://www.youtube.com/watch?v=XA2WjJbmmoM&t=408s

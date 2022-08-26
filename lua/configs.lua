@@ -1,6 +1,7 @@
 print('Hello for config.lua')
 local set = vim.opt
 
+set.number = true
 set.laststatus= 2
 set.tabstop= 2 
 set.softtabstop= 2
