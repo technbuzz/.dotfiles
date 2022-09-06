@@ -15,12 +15,12 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 -- Themes
-Plug 'Shatur/neovim-ayu'
+-- Plug 'Shatur/neovim-ayu'
+Plug 'ellisonleao/gruvbox.nvim'
 
 Plug ('neoclide/coc.nvim', {branch= 'release'})
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
---Plug 'ayu-theme/ayu-vim'
-
+Plug ('akinsho/toggleterm.nvim', {tag=  '*'})
 
 vim.call('plug#end')

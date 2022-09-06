@@ -7,8 +7,10 @@ require('comment-config')
 require('airline-config')
 require('coc-config')
 require('icons-config')
-require('theme-config')
+-- require('theme-config')
+require('user.gruvbox-config')
 require('nerdtree-config')
+require('toggleterm-config')
 EOF
 
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -34,7 +36,8 @@ set wildignore+=**/node_modules/**
 " This was from the colorscheme section
 "set termguicolors          " enable true colors support
 " let ayucolor="mirage"        " for dark version of theme
-" colorscheme ayu
+" set background = dark
+colorscheme gruvbox
 
 
 "let mapleader = " "

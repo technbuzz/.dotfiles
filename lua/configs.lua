@@ -1,6 +1,7 @@
 local set = vim.opt
 
 set.number = true
+set.relativenumber = true
 set.laststatus= 2
 set.tabstop= 2 
 set.softtabstop= 2
@@ -11,6 +12,9 @@ set.smartindent = true
 -- This was from the colorscheme section
 -- enable true colors support
 set.termguicolors = true
-
-
+set.background = 'dark'
+set.scrolloff = 8
+set.hlsearch = false
+set.wrap = false
+set.colorcolumn = '80'
 
