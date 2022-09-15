@@ -9,8 +9,8 @@ set.encoding="utf-8"
 set.hidden = true
 
 -- Some servers have issues with backup files, see #649.
--- set.nobackup = true
--- set.nowritebackup = true
+set.backup = false
+set.writebackup = false
 
 -- Give more space for displaying messages.
 set.cmdheight=2

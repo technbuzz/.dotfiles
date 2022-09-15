@@ -18,9 +18,13 @@ Plug 'kyazdani42/nvim-web-devicons'
 -- Plug 'Shatur/neovim-ayu'
 Plug 'ellisonleao/gruvbox.nvim'
 
+
 Plug ('neoclide/coc.nvim', {branch= 'release'})
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug ('akinsho/toggleterm.nvim', {tag=  '*'})
+
+-- Dev Tools
+Plug 'Equilibris/nx.nvim'
 
 vim.call('plug#end')

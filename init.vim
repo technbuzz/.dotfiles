@@ -4,13 +4,14 @@ require('keymaps')
 require('plugs')
 require('telescope-config')
 require('comment-config')
-require('airline-config')
+require('user.lualine-config')
 require('coc-config')
 require('icons-config')
 -- require('theme-config')
 require('user.gruvbox-config')
-require('nerdtree-config')
+require('user.nerdtree-config')
 require('toggleterm-config')
+-- require('user.nx-config')
 EOF
 
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -32,10 +33,10 @@ set wildignore+=**/node_modules/**
 
 
 
+" let ayucolor="mirage"        " for dark version of theme
 
 " This was from the colorscheme section
 "set termguicolors          " enable true colors support
-" let ayucolor="mirage"        " for dark version of theme
 " set background = dark
 colorscheme gruvbox
 
@@ -45,9 +46,6 @@ nnoremap <leader>pv :Vex<CR>
 vnoremap <leader>p "_dP
 vnoremap <leader>y "*y
 nnoremap <leader>y "*y
-nnoremap <leader>Y gg"*yG
-
-
 
 vnoremap <leader>J :m '>+1<CR>gv=gv
 vnoremap <leader>K :m '<-2<CR>gv=gv
@@ -60,21 +58,9 @@ vnoremap <leader>K :m '<-2<CR>gv=gv
 " ****************************
 "*************************************
 
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

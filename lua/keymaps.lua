@@ -12,6 +12,11 @@ vim.g.maplocalleader = " "
 --keymap("n", "<C-S>", ":update", opts)
 -- there is problem with it so i have moved on
 
+-- Change the escape key to jk
+-- tnoremap jk <C-\><C-n>
+keymap("i", "jk", "<Esc>", opts)
+keymap("t", "jk", "<C-\\><C-n>", opts)
+
 -- Normal
 -- Better Window Navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -25,3 +30,6 @@ keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+-- Tabs 
+keymap("n", "<C-t>", ":tabn", opts)
