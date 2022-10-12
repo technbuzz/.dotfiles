@@ -20,4 +20,4 @@ set.wrap = false
 set.colorcolumn = '80'
 
 -- Sync yanked text with system clipboard and vice versa
-set.clipboard:prepend { 'unnamed', 'unnamedplus' }
+-- set.clipboard:prepend { 'unnamed', 'unnamedplus' }
