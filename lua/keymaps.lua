@@ -24,6 +24,10 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- Ctrl+S to save
+keymap("n", "<C-s>", "<cmd>:w<CR>", opts)
+keymap("i", "<C-s>", "<Esc><cmd>:w<CR>", opts)
+
 -- Better Tab Navigation
 keymap("n", "<leader>l", ":tabnext<CR>", opts)
 keymap("n", "<leader>h", ":tabpre<CR>", opts)
@@ -35,5 +39,3 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Tabs 
-keymap("n", "<C-t>", ":tabn", opts)

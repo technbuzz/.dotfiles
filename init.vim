@@ -19,6 +19,7 @@ EOF
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 
+
 " From thoughbot https://www.youtube.com/watch?v=XA2WjJbmmoM&t=408s
 
 " Search down into subfolders

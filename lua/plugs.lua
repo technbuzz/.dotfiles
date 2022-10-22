@@ -15,6 +15,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lualine/lualine.nvim'
 
 -- Icons
+-- Test
 Plug 'kyazdani42/nvim-web-devicons'
 
 -- Themes
@@ -31,7 +32,13 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
 -- Plug ('neoclide/coc.nvim', {branch= 'release'})
 Plug 'nvim-lua/plenary.nvim'
+
+Plug ('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
+
+-- Telescope and its extension
 Plug 'nvim-telescope/telescope.nvim'
+Plug ('nvim-telescope/telescope-fzf-native.nvim', { ['do']= 'make' })
+
 Plug ('akinsho/toggleterm.nvim', {tag=  '*'})
 
 -- Dev Tools
