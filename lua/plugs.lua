@@ -42,6 +42,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug ('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'nvim-treesitter/playground'
+-- Plug "nvim-treesitter/nvim-treesitter-angular"
+Plug ("elgiano/nvim-treesitter-angular", {branch = "topic/jsx-fix" })
 
 -- Misc
 Plug 'tpope/vim-surround'
