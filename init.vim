@@ -13,6 +13,7 @@ require('plug-config/toggleterm-config')
 require('ts-config')
 require('plug-config/cmp-config')
 require('lsp-config')
+require('plug-config/luasnip-config')
 -- require('plug-config/nx-config')
 EOF
 
@@ -53,5 +54,11 @@ nnoremap <leader>y "*y
 vnoremap <leader>J :m '>+1<CR>gv=gv
 vnoremap <leader>K :m '<-2<CR>gv=gv
 
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+
+" Use Shift-Tab to jump backwards through snippets
+imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
 
 
