@@ -5,15 +5,15 @@ require('plugs')
 require('plug-config/telescope-config')
 require('plug-config/comment-config')
 require('plug-config/lualine-config')
-require('coc-config')
 require('plug-config/icons-config')
 -- require('theme-config')
 require('plug-config/gruvbox-config')
 require('plug-config/nvimtree-config')
 require('plug-config/toggleterm-config')
+require('ts-config')
 require('plug-config/cmp-config')
 require('lsp-config')
---require('plug-config/nx-config')
+-- require('plug-config/nx-config')
 EOF
 
 let g:airline#extensions#tabline#fnamemod = ':t'

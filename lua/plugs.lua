@@ -28,12 +28,23 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
-
 Plug 'hrsh7th/cmp-nvim-lsp'
+
 -- Plug ('neoclide/coc.nvim', {branch= 'release'})
 Plug 'nvim-lua/plenary.nvim'
 
+-- Debugging
+-- Because JS DAP doens't work well as of this time
+-- Plug 'mfussenegger/nvim-dap'
+-- Plug 'rcarriga/nvim-dap-ui'
+
+-- Treesitter
 Plug ('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
+Plug 'p00f/nvim-ts-rainbow'
+Plug 'nvim-treesitter/playground'
+
+-- Misc
+Plug 'tpope/vim-surround'
 
 -- Telescope and its extension
 Plug 'nvim-telescope/telescope.nvim'
@@ -42,6 +53,6 @@ Plug ('nvim-telescope/telescope-fzf-native.nvim', { ['do']= 'make' })
 Plug ('akinsho/toggleterm.nvim', {tag=  '*'})
 
 -- Dev Tools
-Plug 'Equilibris/nx.nvim'
+-- Plug 'Equilibris/nx.nvim'
 
 vim.call('plug#end')

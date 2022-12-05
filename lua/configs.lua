@@ -19,5 +19,10 @@ set.hlsearch = false
 set.wrap = false
 set.colorcolumn = '80'
 
+-- Search Setting
+set.ignorecase = true
+set.smartcase = true
+
+set.cursorline = true
 -- Sync yanked text with system clipboard and vice versa
 -- set.clipboard:prepend { 'unnamed', 'unnamedplus' }
