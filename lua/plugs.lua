@@ -4,6 +4,7 @@ vim.call('plug#begin', '~/AppData/Local/nvim/plugged')
 
 Plug 'mattn/emmet-vim'
 Plug 'wakatime/vim-wakatime'
+
 -- Commenting
 Plug 'numToStr/Comment.nvim'
 
@@ -15,23 +16,31 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lualine/lualine.nvim'
 
 -- Icons
--- Test
 Plug 'kyazdani42/nvim-web-devicons'
 
 -- Themes
 -- Plug 'Shatur/neovim-ayu'
 Plug 'ellisonleao/gruvbox.nvim'
 
+Plug 'nvim-lua/plenary.nvim'
+
 -- Native LSP Config
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'L3MON4D3/LuaSnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'onsails/lspkind.nvim'
 
--- Plug ('neoclide/coc.nvim', {branch= 'release'})
-Plug 'nvim-lua/plenary.nvim'
+-- Comments Setup
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
+-- Comments Repos
+Plug 'johnpapa/vscode-angular-snippets'
+Plug 'rafamadriz/friendly-snippets'
+
 
 -- Debugging
 -- Because JS DAP doens't work well as of this time
@@ -42,6 +51,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug ('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'nvim-treesitter/playground'
+-- Plug "nvim-treesitter/nvim-treesitter-angular"
+Plug ("elgiano/nvim-treesitter-angular", {branch = "topic/jsx-fix" })
 
 -- Misc
 Plug 'tpope/vim-surround'
