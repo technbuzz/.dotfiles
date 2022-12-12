@@ -9,9 +9,8 @@ capabilities.textDocument = {
       }
     }
   }
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local on_attach = function() 
+local on_attach = function()
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer=0})
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer=0})
   vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer=0})
@@ -48,9 +47,37 @@ require'lspconfig'.tsserver.setup{
 
 
 require'lspconfig'.cssls.setup{
-
   capabilities = capabilities,
   on_attach = on_attach
+}
+
+-- local lua_lsp_loc = "C:/Users/Sami/scoop/shims"
+
+require'lspconfig'.sumneko_lua.setup {
+  capabilities = capabilities,
+  n_attach = on_attach,
+  single_file_support = true,
+  settings = {
+    Lua = {
+      -- cmd= lua_lsp_loc,
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 }
 
 

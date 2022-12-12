@@ -31,6 +31,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'onsails/lspkind.nvim'
+Plug 'sumneko/lua-language-server'
 
 -- Comments Setup
 Plug 'hrsh7th/cmp-vsnip'
@@ -46,6 +47,7 @@ Plug 'rafamadriz/friendly-snippets'
 -- Because JS DAP doens't work well as of this time
 -- Plug 'mfussenegger/nvim-dap'
 -- Plug 'rcarriga/nvim-dap-ui'
+--
 
 -- Treesitter
 Plug ('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
