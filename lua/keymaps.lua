@@ -9,8 +9,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Ctrl - S to save
---keymap("n", "<C-S>", ":update", opts)
--- there is problem with it so i have moved on
+keymap("n", "<C-s>", "<cmd>:update<CR>", opts)
+keymap("i", "<C-s>", "<Esc><cmd>:update<CR>", opts)
 
 -- Change the escape key to jk
 -- tnoremap jk <C-\><C-n>
@@ -24,6 +24,9 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- Copy Paste Global
+keymap("n", "<leader>y", '"*y', opts)
+keymap("v", "<leader>y", '"*y', opts)
 
  -- Jump forward or backward
 keymap("n", "Tab", "vsnip#jumpable(1) ? <Plug>(vsnip-jump-next)", opts )
@@ -32,9 +35,6 @@ keymap("n", "Tab", "vsnip#jumpable(1) ? <Plug>(vsnip-jump-next)", opts )
 -- imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 -- smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 --
--- Ctrl+S to save
-keymap("n", "<C-s>", "<cmd>:w<CR>", opts)
-keymap("i", "<C-s>", "<Esc><cmd>:w<CR>", opts)
 
 -- Better Tab Navigation
 keymap("n", "<leader>l", ":tabnext<CR>", opts)

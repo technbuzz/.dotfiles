@@ -28,35 +28,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 set path+=**
 
 " Display all matching files when we tab complete
-set wildmenu
+" set wildmenu
 
 " Excludes folder from find command
-set wildignore+=**/node_modules/** 
-
-
-
-
-
-" This was from the colorscheme section
-"set termguicolors          " enable true colors support
-" set background = dark
-colorscheme gruvbox
-
-
-"let mapleader = " "
-nnoremap <leader>pv :Vex<CR>
-vnoremap <leader>p "_dP
-vnoremap <leader>y "*y
-nnoremap <leader>y "*y
-
-vnoremap <leader>J :m '>+1<CR>gv=gv
-vnoremap <leader>K :m '<-2<CR>gv=gv
-
-" imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-" smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
-"
-" " Use Shift-Tab to jump backwards through snippets
-" imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-" smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-
 
