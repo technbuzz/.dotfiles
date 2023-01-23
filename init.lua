@@ -1,4 +1,4 @@
-require('configs')
+require('set')
 require('keymaps')
 require('plugs')
 require('plug-config/telescope-config')

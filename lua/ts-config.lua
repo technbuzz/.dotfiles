@@ -1,11 +1,11 @@
 
 local opt = vim.opt
 
-require 'nvim-treesitter.install'.compilers = { "gcc" }
+require 'nvim-treesitter.install'.compilers = {"zig"}
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "javascript", "typescript", "css" },
+  ensure_installed = { "help","html", "javascript", "typescript", "css" },
   highlight = {
-    enable = false,
+    enable = true,
     additional_vim_regex_highlighting = false
   },
   indent = {enable = true},
@@ -22,6 +22,32 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
     updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
     persist_queries = false, -- Whether the query persists across vim sessions
+  },
+
+textobjects = {
+    move = {
+      enable = true,
+      set_jumps = true,
+
+      goto_next_start = {
+        ["]p"] = "@parameter.inner",
+        -- ["]m"] = "@function.outer",
+        -- ["]]"] = "@class.outer",
+      },
+      -- goto_next_end = {
+      --   ["]M"] = "@function.outer",
+      --   ["]["] = "@class.outer",
+      -- },
+      -- goto_previous_start = {
+      --   ["[p"] = "@parameter.inner",
+      --   ["[m"] = "@function.outer",
+      --   ["[["] = "@class.outer",
+      -- },
+      -- goto_previous_end = {
+      --   ["[M"] = "@function.outer",
+      --   ["[]"] = "@class.outer",
+      -- },
+    },
   }
 }
 

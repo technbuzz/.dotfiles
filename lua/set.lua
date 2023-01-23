@@ -14,8 +14,11 @@ set.title = true
 -- enable true colors support
 set.termguicolors = true
 set.background = 'dark'
+
 set.scrolloff = 8
+
 set.hlsearch = false
+
 set.wrap = false
 set.colorcolumn = '80'
 

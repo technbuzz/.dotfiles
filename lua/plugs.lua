@@ -53,8 +53,9 @@ Plug 'rafamadriz/friendly-snippets'
 Plug ('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'nvim-treesitter/playground'
+Plug "nvim-treesitter/nvim-treesitter-textobjects"
 -- Plug "nvim-treesitter/nvim-treesitter-angular"
-Plug ("elgiano/nvim-treesitter-angular", {branch = "topic/jsx-fix" })
+-- Plug ("elgiano/nvim-treesitter-angular", {branch = "topic/jsx-fix" })
 
 -- Misc
 Plug 'tpope/vim-surround'
@@ -62,6 +63,8 @@ Plug 'tpope/vim-surround'
 -- Telescope and its extension
 Plug 'nvim-telescope/telescope.nvim'
 Plug ('nvim-telescope/telescope-fzf-native.nvim', { ['do']= 'make' })
+-- Add advanced live grep
+-- Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 
 Plug ('akinsho/toggleterm.nvim', {tag=  '*'})
 

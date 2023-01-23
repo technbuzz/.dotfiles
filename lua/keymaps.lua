@@ -17,6 +17,18 @@ keymap("i", "<C-s>", "<Esc><cmd>:update<CR>", opts)
 keymap("i", "jk", "<Esc>", opts)
 keymap("t", "jk", "<C-\\><C-n>", opts)
 
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+-- Currently coliding by go to definition lsp
+-- keymap("v", "K", ":m '>-2<CR>gv=gv", opts)
+
+
+-- Join line without jumping the cursor
+keymap("n", "J", "mzJ`z", opts)
+
+-- jump scroll but won't always keep cursor in the middle
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+
 -- Normal
 -- Better Window Navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -27,6 +39,11 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Copy Paste Global
 keymap("n", "<leader>y", '"*y', opts)
 keymap("v", "<leader>y", '"*y', opts)
+-- Paste while preserving copied item
+keymap("x", "<leader>p", "\"_dP", opts)
+-- delete to void register 
+keymap("v", "<leader>d", "\"_d", opts)
+keymap("n", "<leader>d", "\"_d", opts)
 
  -- Jump forward or backward
 keymap("n", "Tab", "vsnip#jumpable(1) ? <Plug>(vsnip-jump-next)", opts )
