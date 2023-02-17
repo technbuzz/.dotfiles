@@ -31,7 +31,8 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'onsails/lspkind.nvim'
-Plug 'sumneko/lua-language-server'
+Plug 'LuaLS/lua-language-server'
+-- Plug 'sumneko/lua-language-server'
 
 -- Comments Setup
 Plug 'hrsh7th/cmp-vsnip'
@@ -42,7 +43,8 @@ Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'johnpapa/vscode-angular-snippets'
 Plug 'rafamadriz/friendly-snippets'
 
-
+-- Development in Spare time
+Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
 -- Debugging
 -- Because JS DAP doens't work well as of this time
 -- Plug 'mfussenegger/nvim-dap'
@@ -59,6 +61,8 @@ Plug "nvim-treesitter/nvim-treesitter-textobjects"
 
 -- Misc
 Plug 'tpope/vim-surround'
+-- I didn't had time to configure whichkey
+-- Plug 'folke/which-key.nvim'
 
 -- Telescope and its extension
 Plug 'nvim-telescope/telescope.nvim'

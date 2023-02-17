@@ -56,7 +56,7 @@ require'lspconfig'.cssls.setup{
 
 -- local lua_lsp_loc = "C:/Users/Sami/scoop/shims"
 
-require'lspconfig'.sumneko_lua.setup {
+require'lspconfig'.lua_ls.setup {
   capabilities = capabilities,
   n_attach = on_attach,
   single_file_support = true,

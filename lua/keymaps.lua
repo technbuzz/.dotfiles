@@ -25,7 +25,7 @@ keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 -- Join line without jumping the cursor
 keymap("n", "J", "mzJ`z", opts)
 
--- jump scroll but won't always keep cursor in the middle
+-- jump scroll but won't keep cursor in the middle
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
@@ -47,11 +47,19 @@ keymap("n", "<leader>d", "\"_d", opts)
 
  -- Jump forward or backward
 keymap("n", "Tab", "vsnip#jumpable(1) ? <Plug>(vsnip-jump-next)", opts )
+keymap("s", "Tab", "vsnip#jumpable(1) ? <Plug>(vsnip-jump-next)", opts )
+keymap("n", "S-Tab", "vsnip#jumpable(-1) ? <Plug>(vsnip-jump-prev)", opts )
+keymap("s", "S-Tab", "vsnip#jumpable(-1) ? <Plug>(vsnip-jump-prev)", opts )
 -- imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
 -- smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
 -- imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 -- smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 --
+-- Custom Mapping for Angular and stuff
+keymap("n", "<leader>jm", "<cmd>lua require('custom.angular').jump_to_nearest_module()<cr>", opts)
+keymap("n", "<leader>jc", "<cmd>lua require('custom.angular').jump_to_angular_component_part('ts')<cr>", opts)
+keymap("n", "<leader>jt", "<cmd>lua require('custom.angular').jump_to_angular_component_part('html')<cr>", opts)
+keymap("n", "<leader>js", "<cmd>lua require('custom.angular').jump_to_angular_component_part('scss')<cr>", opts)
 
 -- Better Tab Navigation
 keymap("n", "<leader>l", ":tabnext<CR>", opts)
