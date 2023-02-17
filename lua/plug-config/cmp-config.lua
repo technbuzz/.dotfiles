@@ -16,7 +16,13 @@
     end,
     completion = { completeopt = "menu,menuone,noinsert", keyword_length = 1 },
     formatting = {
-      format = lspkind.cmp_format()
+      format = lspkind.cmp_format({
+          with_tex = true,
+          menu = {
+            buffer = "[buf]",
+            nvim_lsp = "[LSP]"
+          }
+       })
     },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -27,17 +33,22 @@
         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       end,
     },
+    experimental = {
+      ghost_test = true, 
+    },
     window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered()
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item()),
       ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item()),
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
+      ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({

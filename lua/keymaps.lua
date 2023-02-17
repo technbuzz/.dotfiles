@@ -45,15 +45,11 @@ keymap("x", "<leader>p", "\"_dP", opts)
 keymap("v", "<leader>d", "\"_d", opts)
 keymap("n", "<leader>d", "\"_d", opts)
 
- -- Jump forward or backward
-keymap("n", "Tab", "vsnip#jumpable(1) ? <Plug>(vsnip-jump-next)", opts )
-keymap("s", "Tab", "vsnip#jumpable(1) ? <Plug>(vsnip-jump-next)", opts )
-keymap("n", "S-Tab", "vsnip#jumpable(-1) ? <Plug>(vsnip-jump-prev)", opts )
-keymap("s", "S-Tab", "vsnip#jumpable(-1) ? <Plug>(vsnip-jump-prev)", opts )
--- imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
--- smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
--- imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
--- smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+-- vsnip jump through snippets with <Tab>
+keymap("i", "<Tab>", [[vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']], { noremap = false, expr = true })
+keymap("s", "<Tab>", [[vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']], { noremap = false, expr = true })
+keymap( "i", "<S-Tab>", [[vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']], { noremap = false, expr = true })
+keymap( "s", "<S-Tab>", [[vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']], { noremap = false, expr = true })
 --
 -- Custom Mapping for Angular and stuff
 keymap("n", "<leader>jm", "<cmd>lua require('custom.angular').jump_to_nearest_module()<cr>", opts)

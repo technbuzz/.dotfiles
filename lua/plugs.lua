@@ -62,7 +62,7 @@ Plug "nvim-treesitter/nvim-treesitter-textobjects"
 -- Misc
 Plug 'tpope/vim-surround'
 -- I didn't had time to configure whichkey
--- Plug 'folke/which-key.nvim'
+Plug 'folke/which-key.nvim'
 
 -- Telescope and its extension
 Plug 'nvim-telescope/telescope.nvim'
@@ -73,6 +73,6 @@ Plug ('nvim-telescope/telescope-fzf-native.nvim', { ['do']= 'make' })
 Plug ('akinsho/toggleterm.nvim', {tag=  '*'})
 
 -- Dev Tools
--- Plug 'Equilibris/nx.nvim'
+Plug 'Equilibris/nx.nvim'
 
 vim.call('plug#end')
