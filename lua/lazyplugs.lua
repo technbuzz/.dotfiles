@@ -29,7 +29,7 @@ require("lazy").setup({
     end,
   },
 
- 'kyazdani42/nvim-tree.lua',
+  {'kyazdani42/nvim-tree.lua', dependencies = {  'kyazdani42/nvim-web-devicons'} },
   { 'nvim-lualine/lualine.nvim', opts = {} },
 
   -- "gc" to comment visual regions/lines
@@ -41,5 +41,14 @@ require("lazy").setup({
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
   -- requirements installed.
+   { -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    config = function()
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+    end,
+  },
    
 })

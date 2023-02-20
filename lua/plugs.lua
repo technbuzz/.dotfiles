@@ -6,21 +6,9 @@ Plug 'mattn/emmet-vim'
 Plug 'wakatime/vim-wakatime'
 
 
--- Tree
--- Plug 'preservim/nerdtree'
--- Plug 'kyazdani42/nvim-tree.lua'
-
--- Status Line
-Plug 'nvim-lualine/lualine.nvim'
-
--- Icons
-Plug 'kyazdani42/nvim-web-devicons'
-
 -- Themes
 -- Plug 'Shatur/neovim-ayu'
--- Plug 'ellisonleao/gruvbox.nvim'
 
-Plug 'nvim-lua/plenary.nvim'
 
 -- Native LSP Config
 -- Plug 'neovim/nvim-lspconfig'
@@ -50,10 +38,10 @@ Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
 --
 
 -- Treesitter
-Plug ('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
-Plug 'p00f/nvim-ts-rainbow'
-Plug 'nvim-treesitter/playground'
-Plug "nvim-treesitter/nvim-treesitter-textobjects"
+-- Plug ('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
+-- Plug 'p00f/nvim-ts-rainbow'
+-- Plug 'nvim-treesitter/playground'
+-- Plug "nvim-treesitter/nvim-treesitter-textobjects"
 -- Plug "nvim-treesitter/nvim-treesitter-angular"
 -- Plug ("elgiano/nvim-treesitter-angular", {branch = "topic/jsx-fix" })
 
