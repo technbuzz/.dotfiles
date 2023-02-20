@@ -17,10 +17,12 @@
     completion = { completeopt = "menu,menuone,noinsert", keyword_length = 1 },
     formatting = {
       format = lspkind.cmp_format({
-          with_tex = true,
+          with_text = true,
           menu = {
-            buffer = "[buf]",
-            nvim_lsp = "[LSP]"
+            buffer = "﬘",
+            nvim_lsp = "ﲳ",
+            vsnip = "",
+            path = "ﱮ",
           }
        })
     },

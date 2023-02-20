@@ -4,7 +4,8 @@ require('telescope').setup {
 
   defaults = {
     prompt_prefix = "🔭 ",
-    path_display = { "truncate" }
+    path_display = { "truncate" },
+    color_devicons = true
   },
   -- extensions = {
   --   live_grep_args = {
