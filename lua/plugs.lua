@@ -26,10 +26,10 @@ Plug 'nvim-lua/plenary.nvim'
 
 -- Native LSP Config
 -- Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
+-- Plug 'hrsh7th/cmp-buffer'
+-- Plug 'hrsh7th/cmp-path'
+-- Plug 'hrsh7th/nvim-cmp'
+-- Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'onsails/lspkind.nvim'
 Plug 'LuaLS/lua-language-server'
 
@@ -65,8 +65,8 @@ Plug 'tpope/vim-surround'
 Plug 'folke/which-key.nvim'
 
 -- Telescope and its extension
-Plug 'nvim-telescope/telescope.nvim'
-Plug ('nvim-telescope/telescope-fzf-native.nvim', { ['do']= 'make' })
+-- Plug 'nvim-telescope/telescope.nvim'
+-- Plug ('nvim-telescope/telescope-fzf-native.nvim', { ['do']= 'make' })
 -- Add advanced live grep
 -- Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 
