@@ -1,6 +1,7 @@
 require('set')
 require('keymaps')
 require('plugs')
+require('lazyplugs')
 require('plug-config/telescope-config')
 require('plug-config/comment-config')
 require('plug-config/lualine-config')

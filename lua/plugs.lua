@@ -25,14 +25,14 @@ Plug 'ellisonleao/gruvbox.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
 -- Native LSP Config
-Plug 'neovim/nvim-lspconfig'
+-- Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'onsails/lspkind.nvim'
 Plug 'LuaLS/lua-language-server'
--- Plug 'sumneko/lua-language-server'
+
 
 -- Comments Setup
 Plug 'hrsh7th/cmp-vsnip'
