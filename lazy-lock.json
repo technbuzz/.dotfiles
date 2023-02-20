@@ -6,6 +6,7 @@
   "lazy.nvim": { "branch": "main", "commit": "8077428e63feb0f3bf795d53b23ba1695b28ab0e" },
   "lualine.nvim": { "branch": "master", "commit": "e99d733e0213ceb8f548ae6551b04ae32e590c80" },
   "nvim-cmp": { "branch": "main", "commit": "8202df9561b90102b41dbc1ad71945534ef4ea39" },
+  "onedark.nvim": { "branch": "master", "commit": "1fe908fb4acdcee26573e9ccde0de94ec77e5e84" },
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "580b6c48651cabb63455e97d7e131ed557b8c7e2" },
   "telescope.nvim": { "branch": "master", "commit": "c1a2af0af69e80e14e6b226d3957a064cd080805" }

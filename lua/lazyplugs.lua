@@ -20,6 +20,16 @@ require("lazy").setup({
     dependencies = { 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-nvim-lsp' },
   },
 
+
+  { -- Theme inspired by Atom
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'onedark'
+    end,
+  },
+
+
   { 'nvim-lualine/lualine.nvim', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
@@ -28,13 +38,13 @@ require("lazy").setup({
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
   -- requirements installed.
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    -- NOTE: If you are having trouble with this installation,
-    --       refer to the README for telescope-fzf-native for more instructions.
-    build = 'make',
-    cond = function()
-      return vim.fn.executable 'make' == 1
-    end,
-  },
+   {
+     'nvim-telescope/telescope-fzf-native.nvim',
+     -- NOTE: If you are having trouble with this installation,
+     --       refer to the README for telescope-fzf-native for more instructions.
+     build = 'make',
+     cond = function()
+       return vim.fn.executable 'make' == 1
+     end,
+   },
 })

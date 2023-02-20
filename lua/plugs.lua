@@ -20,7 +20,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 -- Themes
 -- Plug 'Shatur/neovim-ayu'
-Plug 'ellisonleao/gruvbox.nvim'
+-- Plug 'ellisonleao/gruvbox.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 
