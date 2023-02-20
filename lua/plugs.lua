@@ -5,12 +5,10 @@ vim.call('plug#begin', '~/AppData/Local/nvim/plugged')
 Plug 'mattn/emmet-vim'
 Plug 'wakatime/vim-wakatime'
 
--- Commenting
-Plug 'numToStr/Comment.nvim'
 
 -- Tree
 -- Plug 'preservim/nerdtree'
-Plug 'kyazdani42/nvim-tree.lua'
+-- Plug 'kyazdani42/nvim-tree.lua'
 
 -- Status Line
 Plug 'nvim-lualine/lualine.nvim'
