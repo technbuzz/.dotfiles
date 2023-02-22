@@ -26,12 +26,12 @@
           "background": "#fffb38",
           "leading_diamond": "",
           "trailing_diamond": "",
-          "properties": {
-              "display_status": true,
-              "display_stash_count": true,
-              "display_upstream_icon": true
-          }
-      },
+            "properties": {
+                "display_status": true,
+                "display_stash_count": true,
+                "display_upstream_icon": true
+            }
+        },
         {
           "background": "#6CA35E",
           "foreground": "#ffffff",
@@ -70,6 +70,27 @@
         }
       ],
       "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "nx",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#000000",
+          "background": "#1976d2",
+          "template": " \uE753 {{ .Full }} "
+        },
+        {
+          "type": "angular",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#000000",
+          "background": "#1976d2",
+          "template": " \uE753 {{ .Full }} "
+        }
+      ]
     }
   ],
   "console_title": true,
