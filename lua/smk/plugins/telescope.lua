@@ -1,4 +1,9 @@
 -- local lga_actions = require("telescope-live-grep-args.actions")
+return 
+  -- Fuzzy Finder (files, lsp, etc)
+  { 'nvim-telescope/telescope.nvim', version = '*',                                    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+
 local builtin = require('telescope.builtin')
 require('telescope').setup {
 
@@ -43,3 +48,5 @@ keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 -- end)
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+    end,
+  }

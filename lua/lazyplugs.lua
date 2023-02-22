@@ -33,8 +33,6 @@ require("lazy").setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',         opts = {} },
 
-  -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', version = '*',                                    dependencies = { 'nvim-lua/plenary.nvim' } },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
@@ -63,6 +61,7 @@ require("lazy").setup({
   require 'smk.plugins.cmp',
   require 'smk.plugins.lsp',
   require 'smk.plugins.treesitter',
+  require 'smk.plugins.telescope',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
