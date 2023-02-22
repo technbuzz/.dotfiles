@@ -1,4 +1,20 @@
+--
 -- Set up nvim-cmp.
+return { -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-vsnip',
+      'hrsh7th/vim-vsnip',
+      'hrsh7th/vim-vsnip-integ',
+      'onsails/lspkind.nvim',
+      'johnpapa/vscode-angular-snippets',
+      'rafamadriz/friendly-snippets'
+    },
+
+  config = function()
   local cmp = require'cmp'
   local lspkind = require'lspkind'
 
@@ -63,6 +79,8 @@
       { name = 'buffer' },
     })
   })
+  end,
+}
 
   -- Set configuration for specific filetype.
   -- cmp.setup.filetype('gitcommit', {
