@@ -1,4 +1,3 @@
-require('set')
 require('keymaps')
 require('lazyplugs')
 require('plug-config/telescope-config')
