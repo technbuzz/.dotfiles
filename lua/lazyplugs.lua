@@ -14,36 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- 'neovim/nvim-lspconfig'
   -- NOTE: This is where your plugins related to LSP can be installed.
-  -- { -- LSP Configuration & Plugins
-  --   'neovim/nvim-lspconfig',
-  --   dependencies = {
-  --     -- Automatically install LSPs to stdpath for neovim
-  --     'williamboman/mason.nvim',
-  --     'williamboman/mason-lspconfig.nvim',
-  --
-  --     -- Useful status updates for LSP
-  --     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-  --     { 'j-hui/fidget.nvim', opts = {} },
-  --
-  --     -- Additional lua configuration, makes nvim stuff amazing!
-  --     'folke/neodev.nvim',
-  --   },
-  -- },
-
-  -- { -- Autocompletion
-  --   'hrsh7th/nvim-cmp',
-  --   dependencies = {
-  --     'hrsh7th/cmp-buffer',
-  --     'hrsh7th/cmp-path',
-  --     'hrsh7th/cmp-nvim-lsp',
-  --     'hrsh7th/cmp-vsnip',
-  --     'hrsh7th/vim-vsnip',
-  --     'hrsh7th/vim-vsnip-integ',
-  --     'onsails/lspkind.nvim',
-  --     'johnpapa/vscode-angular-snippets',
-  --     'rafamadriz/friendly-snippets'
-  --   },
-  -- },
 
 
   { -- Theme inspired by Atom
@@ -80,15 +50,6 @@ require("lazy").setup({
     end,
   },
 
-  { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    config = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-  },
 -- Plug 'mattn/emmet-vim'
 -- Plug 'tpope/vim-surround'
 -- Plug 'wakatime/vim-wakatime'
@@ -101,6 +62,7 @@ require("lazy").setup({
   --       Uncomment any of the lines below to enable them.
   require 'smk.plugins.cmp',
   require 'smk.plugins.lsp',
+  require 'smk.plugins.treesitter',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
