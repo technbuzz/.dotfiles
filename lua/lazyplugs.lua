@@ -100,7 +100,7 @@ require("lazy").setup({
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
   require 'smk.plugins.cmp',
-  -- require 'smk.plugins.lsp',
+  require 'smk.plugins.lsp',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
