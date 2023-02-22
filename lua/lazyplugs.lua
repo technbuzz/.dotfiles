@@ -12,8 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
- -- 'neovim/nvim-lspconfig'
--- NOTE: This is where your plugins related to LSP can be installed.
+  -- 'neovim/nvim-lspconfig'
+  -- NOTE: This is where your plugins related to LSP can be installed.
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -29,18 +29,18 @@ require("lazy").setup({
       'folke/neodev.nvim',
     },
   },
- { -- Autocompletion
+  { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 
+    dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
       'hrsh7th/vim-vsnip-integ',
- 'onsails/lspkind.nvim',
-'johnpapa/vscode-angular-snippets',
-'rafamadriz/friendly-snippets'
+      'onsails/lspkind.nvim',
+      'johnpapa/vscode-angular-snippets',
+      'rafamadriz/friendly-snippets'
     },
   },
 
@@ -53,22 +53,33 @@ require("lazy").setup({
     end,
   },
 
-  {'kyazdani42/nvim-tree.lua', dependencies = {  'kyazdani42/nvim-web-devicons'} },
-  { 'nvim-lualine/lualine.nvim', opts = {} },
+  { 'kyazdani42/nvim-tree.lua',      dependencies = { 'kyazdani42/nvim-web-devicons' } },
+  { 'nvim-lualine/lualine.nvim',     opts = {} },
 
 
-  { 'akinsho/toggleterm.nvim', version=  '*' },
+  { 'akinsho/toggleterm.nvim',       version = '*' },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',         opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'nvim-telescope/telescope.nvim', version = '*',                                    dependencies = { 'nvim-lua/plenary.nvim' } },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
   -- requirements installed.
-   { -- Highlight, edit, and navigate code
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    -- NOTE: If you are having trouble with this installation,
+    --       refer to the README for telescope-fzf-native for more instructions.
+    build = 'make',
+    -- build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    cond = function()
+      return vim.fn.executable 'make' == 1
+    end,
+  },
+
+  { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -77,5 +88,11 @@ require("lazy").setup({
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   },
-   
+-- Plug 'mattn/emmet-vim'
+-- Plug 'tpope/vim-surround'
+-- Plug 'wakatime/vim-wakatime'
+-- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
+-- Dev Tools
+-- Plug 'Equilibris/nx.nvim'
+
 })
