@@ -13,11 +13,35 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
  -- 'neovim/nvim-lspconfig'
-"j-hui/fidget.nvim",
+-- NOTE: This is where your plugins related to LSP can be installed.
+  { -- LSP Configuration & Plugins
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      -- Automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
 
+      -- Useful status updates for LSP
+      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+      { 'j-hui/fidget.nvim', opts = {} },
+
+      -- Additional lua configuration, makes nvim stuff amazing!
+      'folke/neodev.nvim',
+    },
+  },
  { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-nvim-lsp' },
+    dependencies = { 
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-vsnip',
+      'hrsh7th/vim-vsnip',
+      'hrsh7th/vim-vsnip-integ',
+ 'onsails/lspkind.nvim',
+'johnpapa/vscode-angular-snippets',
+'rafamadriz/friendly-snippets'
+    },
   },
 
 
@@ -31,6 +55,9 @@ require("lazy").setup({
 
   {'kyazdani42/nvim-tree.lua', dependencies = {  'kyazdani42/nvim-web-devicons'} },
   { 'nvim-lualine/lualine.nvim', opts = {} },
+
+
+  { 'akinsho/toggleterm.nvim', version=  '*' },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },

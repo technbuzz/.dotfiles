@@ -21,13 +21,13 @@ Plug 'LuaLS/lua-language-server'
 
 
 -- Comments Setup
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+-- Plug 'hrsh7th/cmp-vsnip'
+-- Plug 'hrsh7th/vim-vsnip'
+-- Plug 'hrsh7th/vim-vsnip-integ'
 
 -- Comments Repos
-Plug 'johnpapa/vscode-angular-snippets'
-Plug 'rafamadriz/friendly-snippets'
+-- Plug 'johnpapa/vscode-angular-snippets'
+-- Plug 'rafamadriz/friendly-snippets'
 
 -- Development in Spare time
 Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
@@ -56,7 +56,7 @@ Plug 'folke/which-key.nvim'
 -- Add advanced live grep
 -- Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 
-Plug ('akinsho/toggleterm.nvim', {tag=  '*'})
+-- Plug ('akinsho/toggleterm.nvim', {tag=  '*'})
 
 -- Dev Tools
 Plug 'Equilibris/nx.nvim'
