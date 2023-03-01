@@ -1,6 +1,5 @@
 require('keymaps')
 require('lazyplugs')
-require('plug-config/telescope-config')
 -- require('plug-config/nx-config')
 -- require('theme-config')
 -- require('plug-config/gruvbox-config')
