@@ -20,6 +20,10 @@ return { -- Autocompletion
 
   cmp.setup({
     enabled = function()
+        -- disable when buffer is prompt esp for telescope
+        if vim.bo.buftype == 'prompt' then
+          return false
+        end
         -- disable completion in comments
         local context = require 'cmp.config.context'
         -- keep command mode completion enabled when cursor is in a comment
