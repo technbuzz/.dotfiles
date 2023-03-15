@@ -55,6 +55,19 @@ require("lazy").setup({
   },
 
   { 'mattn/emmet-vim' },
+{ -- Adds git releated signs to the gutter, as well as utilities for managing changes
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      -- See `:help gitsigns.txt`
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+    },
+  },
 -- Plug 'tpope/vim-surround'
 -- Plug 'wakatime/vim-wakatime'
 -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
