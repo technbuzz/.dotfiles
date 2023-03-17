@@ -51,6 +51,14 @@ keymap("s", "<Tab>", [[vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']]
 keymap( "i", "<S-Tab>", [[vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']], { noremap = false, expr = true })
 keymap( "s", "<S-Tab>", [[vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']], { noremap = false, expr = true })
 --
+
+--  TODO README FIX THE INCONSISTENCY OF USING SET
+-- Diagnostics
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
 -- Custom Mapping for Angular and stuff
 keymap("n", "<leader>jm", "<cmd>lua require('custom.angular').jump_to_nearest_module()<cr>", opts)
 keymap("n", "<leader>jc", "<cmd>lua require('custom.angular').jump_to_angular_component_part('ts')<cr>", opts)
@@ -58,7 +66,7 @@ keymap("n", "<leader>jt", "<cmd>lua require('custom.angular').jump_to_angular_co
 keymap("n", "<leader>js", "<cmd>lua require('custom.angular').jump_to_angular_component_part('scss')<cr>", opts)
 
 -- Better Tab Navigation
-keymap("n", "<leader>l", ":tabnext<CR>", opts)
+-- keymap("n", "<leader>l", ":tabnext<CR>", opts)
 keymap("n", "<leader>h", ":tabpre<CR>", opts)
 
 
