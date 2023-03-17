@@ -9,6 +9,7 @@
   "friendly-snippets": { "branch": "main", "commit": "02ed98a1d4bc8baac405480935f3353d3bd60359" },
   "gitsigns.nvim": { "branch": "main", "commit": "b1f9cf7c5c5639c006c937fc1819e09f358210fc" },
   "lazy.nvim": { "branch": "main", "commit": "26d121ea13bee96b079403cee6598f04969d4983" },
+  "lsp_lines.nvim": { "branch": "main", "commit": "dcff567b3a2d730f31b6da229ca3bb40640ec5a6" },
   "lspkind.nvim": { "branch": "master", "commit": "c68b3a003483cf382428a43035079f78474cd11e" },
   "lualine.nvim": { "branch": "master", "commit": "e99d733e0213ceb8f548ae6551b04ae32e590c80" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "3f9c0ea157e88b08e2d11ec65002eeb6e421f0da" },

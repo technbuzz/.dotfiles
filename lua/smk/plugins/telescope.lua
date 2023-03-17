@@ -45,6 +45,7 @@ return
     keymap("n", "<leader>ff", builtin.git_files, opts)
     keymap("n", "<leader>en", "<cmd>Telescope find_files cwd=~/AppData/local/nvim<cr>", opts)
     keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+    vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
     -- keymap("n", "<leader>fg", function()
     --   builtin.grep_string({ string = vim.fn.input("Grep > ") })
     -- end)

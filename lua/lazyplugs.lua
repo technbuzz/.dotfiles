@@ -68,6 +68,21 @@ require("lazy").setup({
       },
     },
   },
+  -- Promising plugin but not working for me
+-- {
+--   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+--     opts = { 
+--     },
+--     config = function()
+--
+--       vim.keymap.set(
+--         "",
+--         "<Leader>l",
+--         require("lsp_lines").toggle,
+--         { desc = "Toggle lsp_lines" }
+--       )
+--     end
+-- },
 -- Plug 'tpope/vim-surround'
 -- Plug 'wakatime/vim-wakatime'
 -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
