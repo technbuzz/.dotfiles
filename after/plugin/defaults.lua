@@ -33,3 +33,5 @@ set.smartcase = true
 set.cursorline = true
 -- Sync yanked text with system clipboard and vice versa
 -- set.clipboard:prepend { 'unnamed', 'unnamedplus' }
+-- Keep signcolumn on by default
+vim.wo.signcolumn = "yes"

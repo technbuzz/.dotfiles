@@ -84,7 +84,7 @@ require("lazy").setup({
 --     end
 -- },
 -- Plug 'tpope/vim-surround'
--- Plug 'wakatime/vim-wakatime'
+  { 'wakatime/vim-wakatime'},
 -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
 -- Dev Tools
 -- Not working properly
