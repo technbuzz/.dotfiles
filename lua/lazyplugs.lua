@@ -24,8 +24,22 @@ require("lazy").setup({
     end,
   },
 
-  { 'kyazdani42/nvim-tree.lua',      dependencies = { 'kyazdani42/nvim-web-devicons' } },
-  { 'nvim-lualine/lualine.nvim',     opts = {} },
+  -- { 'kyazdani42/nvim-tree.lua', dependencies = { 'kyazdani42/nvim-web-devicons' } },
+  { 
+    "nvim-neo-tree/neo-tree.nvim", 
+    branch = "v2.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+   }
+  },
+  { 'nvim-lualine/lualine.nvim', opts = {
+    sections= {
+      lualine_c = {'{…}%3{codeium#GetStatusString()}'}
+    }
+
+  } },
 
 
   { 'akinsho/toggleterm.nvim',       version = '*' },
