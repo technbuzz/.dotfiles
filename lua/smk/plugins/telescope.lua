@@ -34,6 +34,7 @@ return
 
     -- require('telescope').load_extension('fzf')
 
+    -- pcall(require('telescope').load_extension('fzf'))
 
     local opts = { noremap = true, silent = true }
 
