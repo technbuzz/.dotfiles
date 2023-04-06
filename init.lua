@@ -6,4 +6,3 @@ require('lazyplugs')
 require('plug-config/nvimtree-config')
 require('plug-config/toggleterm-config')
 -- require('ts-config')
-echo 'Hi Sami'
