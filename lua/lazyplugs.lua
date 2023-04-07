@@ -99,6 +99,8 @@ require("lazy").setup({
   --     end
   -- },
   -- Plug 'tpope/vim-surround'
+  {'fsouza/prettierd'},
+  {"jose-elias-alvarez/null-ls.nvim", dependencies = { 'nvim-lua/plenary.nvim' }},
   { 'wakatime/vim-wakatime' },
   -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
   -- Dev Tools
@@ -116,6 +118,7 @@ require("lazy").setup({
   require 'smk.plugins.lsp',
   require 'smk.plugins.treesitter',
   require 'smk.plugins.telescope',
+  -- require 'smk.plugins.null-ls',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
