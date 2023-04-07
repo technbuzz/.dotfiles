@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- 'neovim/nvim-lspconfig'
   -- NOTE: This is where your plugins related to LSP can be installed.
- 
+
 
   { -- Theme inspired by Atom
     'navarasu/onedark.nvim',
@@ -24,22 +24,36 @@ require("lazy").setup({
     end,
   },
 
-  { 'kyazdani42/nvim-tree.lua',      dependencies = { 'kyazdani42/nvim-web-devicons' } },
-  { 'nvim-lualine/lualine.nvim',     opts = {} },
+  { 'kyazdani42/nvim-tree.lua', dependencies = { 'kyazdani42/nvim-web-devicons' } },
+  { 'nvim-lualine/lualine.nvim', opts = {} },
 
 
-  { 'akinsho/toggleterm.nvim',       version = '*' },
+  { 'akinsho/toggleterm.nvim', version = '*' },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',         opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
 
-{ 
-    "danymat/neogen", 
-    dependencies = "nvim-treesitter/nvim-treesitter", 
+  {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
     config = true,
     -- Uncomment next line if you want to follow only stable versions
-    -- version = "*" 
-},
+    -- version = "*"
+  },
+  {
+    'ThePrimeagen/harpoon',
+    dependencies = {  'nvim-lua/plenary.nvim' },
+    opts = {menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+    }},
+    config = function() 
+      local mark = require("harpoon.mark")
+      local ui = require("harpoon.ui")
+
+      vim.keymap.set("n", "<leader>a", mark.add_file)
+      vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+    end,
+  },
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
   -- requirements installed.
@@ -52,10 +66,11 @@ require("lazy").setup({
     cond = function()
       return vim.fn.executable 'make' == 1
     end,
+
   },
 
   { 'mattn/emmet-vim' },
-{ -- Adds git releated signs to the gutter, as well as utilities for managing changes
+  { -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
@@ -69,30 +84,32 @@ require("lazy").setup({
     },
   },
   -- Promising plugin but not working for me
--- {
---   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
---     opts = { 
---     },
---     config = function()
---
---       vim.keymap.set(
---         "",
---         "<Leader>l",
---         require("lsp_lines").toggle,
---         { desc = "Toggle lsp_lines" }
---       )
---     end
--- },
--- Plug 'tpope/vim-surround'
-  { 'wakatime/vim-wakatime'},
--- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
--- Dev Tools
--- Not working properly
--- {
---     'Equilibris/nx.nvim',
---     dependencies = 'nvim-telescope/telescope.nvim' ,
---     opts = {}
--- },
+  -- {
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --     opts = {
+  --     },
+  --     config = function()
+  --
+  --       vim.keymap.set(
+  --         "",
+  --         "<Leader>l",
+  --         require("lsp_lines").toggle,
+  --         { desc = "Toggle lsp_lines" }
+  --       )
+  --     end
+  -- },
+  -- Plug 'tpope/vim-surround'
+  {'fsouza/prettierd'},
+  {"jose-elias-alvarez/null-ls.nvim", dependencies = { 'nvim-lua/plenary.nvim' }},
+  { 'wakatime/vim-wakatime' },
+  -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
+  -- Dev Tools
+  -- Not working properly
+  -- {
+  --     'Equilibris/nx.nvim',
+  --     dependencies = 'nvim-telescope/telescope.nvim' ,
+  --     opts = {}
+  -- },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -101,6 +118,7 @@ require("lazy").setup({
   require 'smk.plugins.lsp',
   require 'smk.plugins.treesitter',
   require 'smk.plugins.telescope',
+  -- require 'smk.plugins.null-ls',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
