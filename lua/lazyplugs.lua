@@ -42,11 +42,11 @@ require("lazy").setup({
   },
   {
     'ThePrimeagen/harpoon',
-    dependencies = {  'nvim-lua/plenary.nvim' },
-    opts = {menu = {
-        width = vim.api.nvim_win_get_width(0) - 4,
-    }},
-    config = function() 
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { menu = {
+      width = vim.api.nvim_win_get_width(0) - 4,
+    } },
+    config = function()
       local mark = require("harpoon.mark")
       local ui = require("harpoon.ui")
 
@@ -83,6 +83,28 @@ require("lazy").setup({
       },
     },
   },
+  {
+    "folke/trouble.nvim",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require 'nvim-web-devicons'.setup {}
+      require("trouble").setup {
+        icons = false,
+        use_diagnostic_signs = true,
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+
+      -- Lua
+      vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
+      vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { silent = true, noremap = true })
+      vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", { silent = true, noremap = true })
+      vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true, noremap = true })
+      vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true, noremap = true })
+      vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, noremap = true })
+    end
+  },
   -- Promising plugin but not working for me
   -- {
   --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -99,8 +121,8 @@ require("lazy").setup({
   --     end
   -- },
   -- Plug 'tpope/vim-surround'
-  {'fsouza/prettierd'},
-  {"jose-elias-alvarez/null-ls.nvim", dependencies = { 'nvim-lua/plenary.nvim' }},
+  { 'fsouza/prettierd' },
+  { "jose-elias-alvarez/null-ls.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'wakatime/vim-wakatime' },
   -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
   -- Dev Tools
