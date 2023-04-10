@@ -26,8 +26,14 @@ require("lazy").setup({
 
   { 'kyazdani42/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons' } },
   { 'nvim-lualine/lualine.nvim', opts = {} },
-
-
+  { "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  },
   { 'akinsho/toggleterm.nvim', version = '*' },
 
   -- "gc" to comment visual regions/lines

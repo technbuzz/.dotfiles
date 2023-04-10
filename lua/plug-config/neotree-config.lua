@@ -12,6 +12,15 @@ require("neo-tree").setup({
       unstaged  = "",
       staged    = "",
       conflict  = "",
+    },
+    window = {
+      mappings = {
+        ["o"] = "open" 
+      }
     }
   }
 })
+
+-- keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
+vim.keymap.set("n", "<C-b>", ":NeoTreeRevealToggle<cr>")
+vim.keymap.set("n", "<leader>n", ":NeoTreeFocus<cr>")
