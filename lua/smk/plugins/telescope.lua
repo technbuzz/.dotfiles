@@ -1,7 +1,6 @@
 -- local lga_actions = require("telescope-live-grep-args.actions")
-return
--- Fuzzy Finder (files, lsp, etc)
-{
+return-- Fuzzy Finder (files, lsp, etc)
+ {
   'nvim-telescope/telescope.nvim',
   version = '*',
   dependencies = { 'nvim-lua/plenary.nvim' },
@@ -14,26 +13,34 @@ return
         path_display = { "truncate" },
         color_devicons = true
       },
-      -- extensions = {
-      --   live_grep_args = {
-      --     auto_quoting = false, -- enable/disable auto-quoting
-      --     -- define mappings, e.g.
-      --     mappings = { -- extend mappings
-      --       i = {
-      --         ["<C-k>"] = lga_actions.quote_prompt(),
-      --         ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-      --       },
-      --     },
-      --     -- ... also accepts theme settings, for example:
-      --     -- theme = "dropdown", -- use dropdown theme
-      --     -- theme = { }, -- use own theme spec
-      --     -- layout_config = { mirror=true }, -- mirror preview pane
-      --   }
-      -- }
+      extensions = {
+        fzf = {
+          fuzzy = true, -- false will only do exact matching
+          override_generic_sorter = true, -- override the generic sorter
+          override_file_sorter = true, -- override the file sorter
+          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+          -- the default case_mode is "smart_case"
+        },
+          live_grep_args = {
+        --     auto_quoting = false, -- enable/disable auto-quoting
+        --     -- define mappings, e.g.
+        --     mappings = { -- extend mappings
+        --       i = {
+        --         ["<C-k>"] = lga_actions.quote_prompt(),
+        --         ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+        --       },
+        --     },
+        --     -- ... also accepts theme settings, for example:
+        --     -- theme = "dropdown", -- use dropdown theme
+        --     -- theme = { }, -- use own theme spec
+        --     -- layout_config = { mirror=true }, -- mirror preview pane
+          }
+      }
     }
 
     -- require('telescope').load_extension('fzf')
 
+    pcall(require('telescope').load_extension('fzf'))
 
     local opts = { noremap = true, silent = true }
 
@@ -41,15 +48,26 @@ return
     local keymap = vim.keymap.set
 
     -- Find files using Telescope command-line sugar.
+    vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+    vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = '[F]ind [R]esume' })
+    vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+    vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+    vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+    vim.keymap.set('n', '<leader>/', function()
+      -- You can pass additional configuration to telescope to change theme, layout, etc.
+      require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+      })
+    end, { desc = '[/] Fuzzily search in current buffer' })
+
     keymap("n", "<leader>pf", builtin.find_files, opts)
-    keymap("n", "<leader>ff", builtin.git_files, opts)
     keymap("n", "<leader>en", "<cmd>Telescope find_files cwd=~/AppData/local/nvim<cr>", opts)
-    keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+    vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+    vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
     -- keymap("n", "<leader>fg", function()
     --   builtin.grep_string({ string = vim.fn.input("Grep > ") })
     -- end)
-    keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
-    keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
   end,
 }

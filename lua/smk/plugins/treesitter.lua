@@ -40,7 +40,7 @@ textobjects = {
       set_jumps = true,
 
       goto_next_start = {
-        ["]p"] = "@parameter.inner",
+        -- ["]p"] = "@parameter.inner",
         -- ["]m"] = "@function.outer",
         -- ["]]"] = "@class.outer",
       },
