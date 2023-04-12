@@ -31,7 +31,10 @@ set.ignorecase = true
 set.smartcase = true
 
 set.cursorline = true
--- Sync yanked text with system clipboard and vice versa
--- set.clipboard:prepend { 'unnamed', 'unnamedplus' }
 -- Keep signcolumn on by default
 vim.wo.signcolumn = "yes"
+
+-- Fold with Treesitter
+set.foldlevel = 20
+set.foldmethod = "expr"
+set.foldexpr = "nvim_treesitter#foldexpr()"

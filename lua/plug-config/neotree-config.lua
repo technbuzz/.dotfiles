@@ -15,7 +15,7 @@ require("neo-tree").setup({
     },
     window = {
       mappings = {
-        ["o"] = "open" 
+        [";"] = "open" 
       }
     }
   }
