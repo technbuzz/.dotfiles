@@ -72,6 +72,7 @@
       -- rust_analyzer = {},
       -- tsserver = {},
 
+
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
@@ -101,6 +102,7 @@
           capabilities = capabilities,
           on_attach = on_attach,
           settings = servers[server_name],
+          -- init_options = { lint = true }
         }
       end,
     }

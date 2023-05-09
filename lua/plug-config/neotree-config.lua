@@ -13,12 +13,19 @@ require("neo-tree").setup({
       staged    = "",
       conflict  = "",
     },
-    window = {
-      mappings = {
-        [";"] = "open" 
-      }
+  },
+
+  window = {
+    mappings = {
+      ["o"] = "open"
     }
+  },
+
+  buffers = {
+    follow_current_file = true, -- This will find and focus the file in the active buffer every
+    -- time the current file is changed while the tree is open.
   }
+
 })
 
 -- keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
