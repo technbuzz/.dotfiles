@@ -38,3 +38,18 @@ vim.wo.signcolumn = "yes"
 set.foldlevel = 20
 set.foldmethod = "expr"
 set.foldexpr = "nvim_treesitter#foldexpr()"
+
+
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+local yank_group = augroup('HighlightYank', {})
+autocmd('TextYankPost', {
+    group = yank_group,
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = 'IncSearch',
+            timeout = 40,
+        })
+    end,
+})
