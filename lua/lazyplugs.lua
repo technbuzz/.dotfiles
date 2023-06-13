@@ -24,7 +24,7 @@ require("lazy").setup({
     end,
   },
 
-  { 'kyazdani42/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons' } },
+  -- { 'kyazdani42/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons' } },
   { 'nvim-lualine/lualine.nvim', opts = {} },
   { "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",

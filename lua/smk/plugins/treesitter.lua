@@ -11,9 +11,10 @@
     config = function()
 local opt = vim.opt
 
-require 'nvim-treesitter.install'.compilers = {"zig"}
+-- require 'nvim-treesitter.install'.compilers = {"zig"}
+-- require 'nvim-treesitter.install'.compilers = {"cmake"}
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "help","html", "javascript", "typescript", "css" },
+  ensure_installed = {"html", "javascript", "typescript", "css" },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false
