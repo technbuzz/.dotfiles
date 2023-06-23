@@ -30,7 +30,8 @@ require("lazy").setup({
     branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "DavidBabel/vscode-simpler-icons",
+      -- "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
   },
@@ -90,6 +91,9 @@ require("lazy").setup({
       },
     },
   },
+  -- { doesn't works properly need to hceck the plugin docs
+  --   "folke/flash.nvim",
+  -- },
   {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
