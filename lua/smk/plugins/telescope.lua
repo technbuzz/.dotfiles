@@ -21,20 +21,20 @@ return-- Fuzzy Finder (files, lsp, etc)
           case_mode = "smart_case", -- or "ignore_case" or "respect_case"
           -- the default case_mode is "smart_case"
         },
-          live_grep_args = {
-        --     auto_quoting = false, -- enable/disable auto-quoting
-        --     -- define mappings, e.g.
-        --     mappings = { -- extend mappings
-        --       i = {
-        --         ["<C-k>"] = lga_actions.quote_prompt(),
-        --         ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-        --       },
-        --     },
-        --     -- ... also accepts theme settings, for example:
-        --     -- theme = "dropdown", -- use dropdown theme
-        --     -- theme = { }, -- use own theme spec
-        --     -- layout_config = { mirror=true }, -- mirror preview pane
-          }
+        live_grep_args = {
+          --     auto_quoting = false, -- enable/disable auto-quoting
+          --     -- define mappings, e.g.
+          --     mappings = { -- extend mappings
+          --       i = {
+          --         ["<C-k>"] = lga_actions.quote_prompt(),
+          --         ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+          --       },
+          --     },
+          --     -- ... also accepts theme settings, for example:
+          --     -- theme = "dropdown", -- use dropdown theme
+          --     -- theme = { }, -- use own theme spec
+          --     -- layout_config = { mirror=true }, -- mirror preview pane
+        }
       }
     }
 
@@ -65,7 +65,12 @@ return-- Fuzzy Finder (files, lsp, etc)
     keymap("n", "<leader>en", "<cmd>Telescope find_files cwd=~/AppData/local/nvim<cr>", opts)
     vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-    vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', '<leader>fb', function()
+      require('telescope.builtin').buffers({
+        sort_lastused = true
+      })
+    end
+      , { desc = '[F]ind existing [B]uffers' })
     -- keymap("n", "<leader>fg", function()
     --   builtin.grep_string({ string = vim.fn.input("Grep > ") })
     -- end)
