@@ -20,12 +20,9 @@ require("neo-tree").setup({
       ["o"] = "open"
     }
   },
-
-  buffers = {
-    follow_current_file = true, -- This will find and focus the file in the active buffer every
-    -- time the current file is changed while the tree is open.
+  filesystem = {
+    follow_current_file = true
   }
-
 })
 
 -- keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
