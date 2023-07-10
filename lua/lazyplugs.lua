@@ -28,10 +28,18 @@ require("lazy").setup({
   -- { 'kyazdani42/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons' } },
   {
     'nvim-lualine/lualine.nvim',
+    event = "VeryLazy",
     opts = {
       options = {
-        fmt = string.lower,
         globalstatus = true,
+      },
+      sections = {
+        -- lualine_x = {
+        --   function()
+        --     return  vim.fn["codeium#GetStatusString"]()
+        --   end
+        --   -- \{…\}%3{codeium#GetStatusString()}
+        -- }
       }
     }
   },
