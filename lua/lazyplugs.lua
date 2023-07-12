@@ -34,12 +34,12 @@ require("lazy").setup({
         globalstatus = true,
       },
       sections = {
-        -- lualine_x = {
-        --   function()
-        --     return  vim.fn["codeium#GetStatusString"]()
-        --   end
+        lualine_x = {
+          function()
+            return  vim.fn["codeium#GetStatusString"]()
+          end
         --   -- \{…\}%3{codeium#GetStatusString()}
-        -- }
+        }
       }
     }
   },
