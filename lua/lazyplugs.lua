@@ -117,6 +117,7 @@ require("lazy").setup({
   -- { doesn't works properly need to hceck the plugin docs
   --   "folke/flash.nvim",
   -- },
+  -- 
   {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
