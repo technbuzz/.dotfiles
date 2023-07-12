@@ -16,7 +16,8 @@ require("lazy").setup({
   -- NOTE: This is where your plugins related to LSP can be installed.
 
 
-  { -- Theme inspired by Atom
+  {
+    -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
@@ -25,8 +26,25 @@ require("lazy").setup({
   },
 
   -- { 'kyazdani42/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons' } },
-  { 'nvim-lualine/lualine.nvim', opts = {} },
-  { "nvim-neo-tree/neo-tree.nvim",
+  {
+    'nvim-lualine/lualine.nvim',
+    event = "VeryLazy",
+    opts = {
+      options = {
+        globalstatus = true,
+      },
+      sections = {
+        lualine_x = {
+          function()
+            return  vim.fn["codeium#GetStatusString"]()
+          end
+        --   -- \{…\}%3{codeium#GetStatusString()}
+        }
+      }
+    }
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -38,7 +56,7 @@ require("lazy").setup({
   { 'akinsho/toggleterm.nvim', version = '*' },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',   opts = {} },
 
   {
     "danymat/neogen",
@@ -50,15 +68,17 @@ require("lazy").setup({
   {
     'ThePrimeagen/harpoon',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { menu = {
-      width = vim.api.nvim_win_get_width(0) - 4,
-    } },
+    opts = {
+      menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+      }
+    },
     config = function()
       local mark = require("harpoon.mark")
       local ui = require("harpoon.ui")
 
-      vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "[A]dd File Mark"})
-      vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu, { desc = "View All Project Marks"})
+      vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "[A]dd File Mark" })
+      vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu, { desc = "View All Project Marks" })
     end,
   },
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -75,10 +95,13 @@ require("lazy").setup({
     end,
 
   },
-
-  {'wellle/context.vim'},
+  -- Lazy
+  --
+  { 'Exafunction/codeium.vim' },
+  { 'wellle/context.vim' },
   { 'mattn/emmet-vim' },
-  { -- Adds git releated signs to the gutter, as well as utilities for managing changes
+  {
+    -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
@@ -94,6 +117,7 @@ require("lazy").setup({
   -- { doesn't works properly need to hceck the plugin docs
   --   "folke/flash.nvim",
   -- },
+  -- 
   {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
