@@ -98,7 +98,18 @@ require("lazy").setup({
   -- Lazy
   --
   { 'Exafunction/codeium.vim' },
-  { 'wellle/context.vim' },
+  -- { 'wellle/context.vim' },
+  -- { 'nvim-treesitter/nvim-treesitter'
+  { 'nvim-treesitter/nvim-treesitter-context',
+
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    -- ignore certain file types
+    -- opts = {
+    --   on_attach = function(bufnr)
+    --     return vim.bo[bufnr].filetype == 'neotree'
+    --   end
+    -- }
+  },
   { 'mattn/emmet-vim' },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
