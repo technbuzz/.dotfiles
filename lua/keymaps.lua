@@ -74,13 +74,6 @@ local function saveExec()
   return "<Cmd>write<CR> <Cmd>source %<CR>"
 end
 
-local function testLuaFile()
-  if vim.bo.filetype == "lua" then
-    -- return "<Plug>PlenaryTestFile"
-    return "sami"
-  end
-end
-
 -- Plug dev, saves and sources current file
 keymap("n", "<leader><leader>x", saveExec(), opts)
 keymap("n", "<leader>t", "<Plug>PlenaryTestFile", opts)
