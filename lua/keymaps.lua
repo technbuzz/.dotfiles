@@ -68,8 +68,14 @@ keymap("n", "<leader>js", "<cmd>lua require('custom.angular').jump_to_angular_co
 -- Better Tab Navigation
 -- keymap("n", "<leader>l", ":tabnext<CR>", opts)
 keymap("n", "<leader>h", ":tabpre<CR>", opts)
+keymap("n", ",sz", "echo 'Goodbye'", opts)
 
+local function saveExec()
+  return "<Cmd>write<CR> <Cmd>source %<CR>"
+end
 
+-- Plug dev, saves and sources current file
+keymap("n", "<leader><leader>x", saveExec(), opts)
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)

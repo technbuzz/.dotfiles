@@ -12,10 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- 'neovim/nvim-lspconfig'
-  -- NOTE: This is where your plugins related to LSP can be installed.
-
-
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
@@ -58,6 +54,8 @@ require("lazy").setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',   opts = {} },
 
+  -- add annotations currently the key nf collides with
+  -- neotree <leader>n
   {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
@@ -98,8 +96,6 @@ require("lazy").setup({
   -- Lazy
   --
   { 'Exafunction/codeium.vim' },
-  -- { 'wellle/context.vim' },
-  -- { 'nvim-treesitter/nvim-treesitter'
   { 'nvim-treesitter/nvim-treesitter-context',
 
     dependencies = "nvim-treesitter/nvim-treesitter",
@@ -178,10 +174,12 @@ require("lazy").setup({
   --     dependencies = 'nvim-telescope/telescope.nvim' ,
   --     opts = {}
   -- },
+  {'folke/neodev.nvim', opts={}},
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
+  {dir = "~/practice/noonx"},
   require 'smk.plugins.cmp',
   require 'smk.plugins.lsp',
   require 'smk.plugins.treesitter',
