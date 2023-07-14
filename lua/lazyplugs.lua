@@ -174,11 +174,12 @@ require("lazy").setup({
   --     dependencies = 'nvim-telescope/telescope.nvim' ,
   --     opts = {}
   -- },
-  {'folke/neodev.nvim'},
+  {'folke/neodev.nvim', opts={}},
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
+  {dir = "~/practice/noonx"},
   require 'smk.plugins.cmp',
   require 'smk.plugins.lsp',
   require 'smk.plugins.treesitter',
