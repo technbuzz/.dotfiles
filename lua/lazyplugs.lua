@@ -169,11 +169,11 @@ require("lazy").setup({
   -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
   -- Dev Tools
   -- Not working properly
-  -- {
-  --     'Equilibris/nx.nvim',
-  --     dependencies = 'nvim-telescope/telescope.nvim' ,
-  --     opts = {}
-  -- },
+  {
+      'Equilibris/nx.nvim',
+      dependencies = 'nvim-telescope/telescope.nvim' ,
+      opts = {}
+  },
   {'folke/neodev.nvim', opts={}},
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
