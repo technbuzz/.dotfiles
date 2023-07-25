@@ -17,8 +17,11 @@ keymap("i", "<C-s>", "<Esc><cmd>:update<CR>", opts)
 keymap("i", "jk", "<Esc>", opts)
 keymap("t", "jk", "<C-\\><C-n>", opts)
 
+-- hard to type : because it requires using shift
+-- so rather than moving your pinkie pressing ; is much easier
+keymap("n", ";", ":", opts)
+
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
--- Currently coliding by go to definition lsp
 -- keymap("v", "K", ":m '>-2<CR>gv=gv", opts)
 
 
@@ -77,6 +80,8 @@ end
 -- Plug dev, saves and sources current file
 keymap("n", "<leader><leader>x", saveExec(), opts)
 keymap("n", "<leader>t", "<Plug>PlenaryTestFile", opts)
+
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
