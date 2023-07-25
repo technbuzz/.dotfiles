@@ -81,6 +81,7 @@ end
 keymap("n", "<leader><leader>x", saveExec(), opts)
 keymap("n", "<leader>t", "<Plug>PlenaryTestFile", opts)
 
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
