@@ -21,7 +21,25 @@ require("neo-tree").setup({
     }
   },
   filesystem = {
-    follow_current_file = true
+    follow_current_file = true,
+    window = {
+      mappings = {
+        ['nf'] = 'touch_files',
+      }
+    },
+    commands = {
+      touch_files = function(state)
+        local node = state.tree:get_node()
+        local id = node:get_id()
+        vim.api.nvim_input(":!touch " .. id .. "<Home>")
+        -- P(node)
+        -- copy string to clipboard using neovim api
+        -- vim.fn.setreg('+', id)
+        -- vim.fn.setreg('"', id)
+        -- P('path copied to clipboard')
+      end
+
+    }
   }
 })
 

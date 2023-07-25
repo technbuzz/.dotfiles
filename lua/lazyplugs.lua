@@ -180,6 +180,17 @@ require("lazy").setup({
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
   {dir = "~/practice/noonx"},
+  {dir = "~/Dev/playground/noonx"},
+-- init.lua
+{
+    'darksinge/plink.nvim',
+    -- commit = '4e62e47',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'darksinge/neodash.nvim',
+      'MunifTanjim/nui.nvim',
+    },
+},
   require 'smk.plugins.cmp',
   require 'smk.plugins.lsp',
   require 'smk.plugins.treesitter',
