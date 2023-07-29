@@ -95,7 +95,11 @@ require("lazy").setup({
   },
   -- Lazy
   --
-  { 'Exafunction/codeium.vim' },
+  { 'Exafunction/codeium.vim', 
+    config = function() 
+      vim.keymap.set("i", "<C-g>", function() return vim.fn['codeium#Accept']()end, {expr=true})
+    end
+  },
   { 'nvim-treesitter/nvim-treesitter-context',
 
     dependencies = "nvim-treesitter/nvim-treesitter",
