@@ -18,6 +18,8 @@ autoload -Uz compinit && compinit
 # Bring ls alias
 alias lsa="ls -l -a -G" #lists all the files, including hidden with dir colors
 
+alias lg="lazygit"
+
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export NVM_DIR="$HOME/.nvm"
