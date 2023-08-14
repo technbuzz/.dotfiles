@@ -23,7 +23,9 @@ alias lg="lazygit"
 alias zl="zellij"
 alias zla="zellij attach"
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# we need to fix for windows
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
