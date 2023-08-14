@@ -6,6 +6,7 @@ export HOMEBREW_GITHUB_API_TOKEN=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
 
 alias gb="git branch"
 alias gl="git log"
+alias gs="git status"
 alias gcb="git checkout -b"
 alias gc="git checkout"
 alias gm="git merge"
@@ -19,6 +20,8 @@ autoload -Uz compinit && compinit
 alias lsa="ls -l -a -G" #lists all the files, including hidden with dir colors
 
 alias lg="lazygit"
+alias zl="zellij"
+alias zla="zellij attach"
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
