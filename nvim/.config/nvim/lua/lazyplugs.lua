@@ -31,10 +31,16 @@ require("lazy").setup({
       },
       sections = {
         lualine_x = {
-          function()
-            return  vim.fn["codeium#GetStatusString"]()
-          end
-        --   -- \{…\}%3{codeium#GetStatusString()}
+          -- function()
+          --   return   vim.fn["codeium#GetStatusString"]()
+          -- end
+          {
+            'vim.fn["codeium#GetStatusString"]()',
+            fmt = function(str)
+              return "suggestions: " .. str:lower():match("^%s*(.-)%s*$")
+            end
+          },
+          'encoding', 'fileformat', 'filetype'
         }
       }
     }
@@ -95,12 +101,16 @@ require("lazy").setup({
   },
   -- Lazy
   --
-  { 'Exafunction/codeium.vim', 
-    config = function() 
-      vim.keymap.set("i", "<C-g>", function() return vim.fn['codeium#Accept']()end, {expr=true})
+  {
+    'Exafunction/codeium.vim',
+    config = function()
+      vim.keymap.set("i", "<C-l>", function() return vim.fn['codeium#Accept']() end, { expr = true })
+      -- vim.keymap.set("i", "<C-;>", function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+      -- vim.keymap.set("i", "<C-,>", function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
     end
   },
-  { 'nvim-treesitter/nvim-treesitter-context',
+  {
+    'nvim-treesitter/nvim-treesitter-context',
 
     dependencies = "nvim-treesitter/nvim-treesitter",
     -- ignore certain file types
@@ -128,7 +138,7 @@ require("lazy").setup({
   -- { doesn't works properly need to hceck the plugin docs
   --   "folke/flash.nvim",
   -- },
-  -- 
+  --
   {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
@@ -174,19 +184,19 @@ require("lazy").setup({
   -- Dev Tools
   -- Not working properly
   {
-      'Equilibris/nx.nvim',
-      dependencies = 'nvim-telescope/telescope.nvim' ,
-      opts = {}
+    'Equilibris/nx.nvim',
+    dependencies = 'nvim-telescope/telescope.nvim',
+    opts = {}
   },
-  {'folke/neodev.nvim', opts={}},
+  { 'folke/neodev.nvim',           opts = {} },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  {dir = "~/practice/noonx"},
-  {dir = "~/Dev/playground/noonx"},
--- init.lua
-{
+  { dir = "~/practice/noonx" },
+  { dir = "~/Dev/playground/noonx" },
+  -- init.lua
+  {
     'darksinge/plink.nvim',
     -- commit = '4e62e47',
     dependencies = {
@@ -194,7 +204,7 @@ require("lazy").setup({
       'darksinge/neodash.nvim',
       'MunifTanjim/nui.nvim',
     },
-},
+  },
   require 'smk.plugins.cmp',
   require 'smk.plugins.lsp',
   require 'smk.plugins.treesitter',

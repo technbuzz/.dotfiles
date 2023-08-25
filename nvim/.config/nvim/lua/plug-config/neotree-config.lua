@@ -25,6 +25,8 @@ require("neo-tree").setup({
     window = {
       mappings = {
         ['nf'] = 'touch_files',
+        ['np'] = 'format_file',
+        ['ny'] = 'yank_files',
       }
     },
     commands = {
@@ -37,8 +39,23 @@ require("neo-tree").setup({
         -- vim.fn.setreg('+', id)
         -- vim.fn.setreg('"', id)
         -- P('path copied to clipboard')
-      end
+      end,
+      format_file = function(state)
+        local node = state.tree:get_node()
+        local id = node:get_id()
+        vim.api.nvim_input(":!prettier " .. id .. " --write <End>")
+      end,
 
+      yank_files = function(state)
+        local node = state.tree:get_node()
+        local id = node:get_id()
+        vim.api.nvim_input(":!cp -R " .. id .. "<End>" )
+        -- P(node)
+        -- copy string to clipboard using neovim api
+        -- vim.fn.setreg('+', id)
+        -- vim.fn.setreg('"', id)
+        -- P('path copied to clipboard')
+      end
     }
   }
 })

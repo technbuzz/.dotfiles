@@ -102,6 +102,7 @@
           capabilities = capabilities,
           on_attach = on_attach,
           settings = servers[server_name],
+          filetypes = (servers[server_name] or {}).filetypes,
           -- init_options = { lint = true }
         }
       end,
