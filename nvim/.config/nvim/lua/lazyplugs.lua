@@ -178,6 +178,11 @@ require("lazy").setup({
   -- },
   -- Plug 'tpope/vim-surround'
   { 'fsouza/prettierd' },
+  {'mbbill/undotree', 
+    config = function()
+      vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<cr>')
+    end
+  },
   { "jose-elias-alvarez/null-ls.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'wakatime/vim-wakatime' },
   -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'

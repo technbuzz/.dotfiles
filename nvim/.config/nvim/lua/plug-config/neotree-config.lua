@@ -27,6 +27,7 @@ require("neo-tree").setup({
         ['nf'] = 'touch_files',
         ['np'] = 'format_file',
         ['ny'] = 'yank_files',
+        ['nt'] = 'search_by_dir',
       }
     },
     commands = {
@@ -50,11 +51,14 @@ require("neo-tree").setup({
         local node = state.tree:get_node()
         local id = node:get_id()
         vim.api.nvim_input(":!cp -R " .. id .. "<End>" )
-        -- P(node)
-        -- copy string to clipboard using neovim api
-        -- vim.fn.setreg('+', id)
-        -- vim.fn.setreg('"', id)
-        -- P('path copied to clipboard')
+      end,
+
+      search_by_dir = function(state)
+        local node = state.tree:get_node()
+        local id = node:get_id()
+        vim.api.nvim_command("Telescope find_files search_dirs=".. id)
+        P(id)
+        P("Telescope find_files search_dirs=".. id)
       end
     }
   }
