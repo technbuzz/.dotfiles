@@ -1,4 +1,4 @@
-return {  -- LSP Configuration & Plugins
+return { -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
   dependencies = {
     -- Automatically install LSPs to stdpath for neovim
@@ -14,6 +14,8 @@ return {  -- LSP Configuration & Plugins
   },
 
   config = function()
+    local lspconfig = require("lspconfig")
+
     -- LSP settings.
     --  This function gets run when an LSP connects to a particular buffer.
     local on_attach = function(_, bufnr)
@@ -80,6 +82,8 @@ return {  -- LSP Configuration & Plugins
       },
     }
 
+
+
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
@@ -91,6 +95,59 @@ return {  -- LSP Configuration & Plugins
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+    -- configure html server
+    lspconfig["html"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure css server
+    lspconfig["cssls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    local function organize_imports()
+      local params = {
+        command = "_typescript.organizeImports",
+        arguments = { vim.api.nvim_buf_get_name(0) },
+        title = ""
+      }
+      vim.lsp.buf.execute_command(params)
+    end
+
+    -- configure typescript server with plugin
+    lspconfig["tsserver"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      commands = {
+        OrganizeImports = {
+          organize_imports,
+          description = "Organize Imports",
+        }
+      }
+    })
+
+    -- configure lua server (with special settings)
+    lspconfig["lua_ls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = { -- custom settings for lua
+        Lua = {
+          -- make the language server recognize "vim" global
+          diagnostics = {
+            globals = { "vim" },
+          },
+          workspace = {
+            -- make language server aware of runtime files
+            library = {
+              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+              [vim.fn.stdpath("config") .. "/lua"] = true,
+            },
+          },
+        },
+      },
+    })
     -- Setup mason so it can manage external tooling
     require('mason').setup()
 
@@ -101,16 +158,16 @@ return {  -- LSP Configuration & Plugins
       ensure_installed = vim.tbl_keys(servers),
     }
 
-    mason_lspconfig.setup_handlers {
-      function(server_name)
-        require('lspconfig')[server_name].setup {
-          capabilities = capabilities,
-          on_attach = on_attach,
-          settings = servers[server_name],
-          filetypes = (servers[server_name] or {}).filetypes,
-          -- init_options = { lint = true }
-        }
-      end,
-    }
+    -- mason_lspconfig.setup_handlers {
+    --   function(server_name)
+    --     require('lspconfig')[server_name].setup {
+    --       capabilities = capabilities,
+    --       on_attach = on_attach,
+    --       settings = servers[server_name],
+    --       filetypes = (servers[server_name] or {}).filetypes,
+    --       -- init_options = { lint = true }
+    --     }
+    --   end,
+    -- }
   end,
 }
