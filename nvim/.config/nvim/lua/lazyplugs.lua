@@ -15,11 +15,14 @@ require("lazy").setup({
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
+    lazy = false,
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'onedark'
     end,
   },
+
+  { 'xiyaowong/transparent.nvim' },
 
   -- { 'kyazdani42/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons' } },
   {
@@ -55,10 +58,10 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
     }
   },
-  { 'akinsho/toggleterm.nvim', version = '*' },
+  --{ 'akinsho/toggleterm.nvim', version = '*' },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',   opts = {} },
+  { 'numToStr/Comment.nvim', event="VeryLazy",  opts = {} },
 
   -- add annotations currently the key nf collides with
   -- neotree <leader>n
@@ -70,7 +73,7 @@ require("lazy").setup({
     -- version = "*"
   },
   {
-    'ThePrimeagen/harpoon',
+    'ThePrimeagen/harpoon',event="VeryLazy",
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
       menu = {
@@ -90,6 +93,8 @@ require("lazy").setup({
   -- requirements installed.
   {
     'nvim-telescope/telescope-fzf-native.nvim',
+
+    event="VeryLazy",
     -- NOTE: If you are having trouble with this installation,
     --       refer to the README for telescope-fzf-native for more instructions.
     build = 'make',
@@ -103,6 +108,8 @@ require("lazy").setup({
   --
   {
     'Exafunction/codeium.vim',
+    event="VeryLazy",
+
     config = function()
       vim.keymap.set("i", "<C-l>", function() return vim.fn['codeium#Accept']() end, { expr = true })
       -- vim.keymap.set("i", "<C-;>", function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
@@ -111,6 +118,7 @@ require("lazy").setup({
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
+event="VeryLazy",
 
     dependencies = "nvim-treesitter/nvim-treesitter",
     -- ignore certain file types
@@ -120,7 +128,8 @@ require("lazy").setup({
     --   end
     -- }
   },
-  { 'mattn/emmet-vim' },
+  { 'mattn/emmet-vim', event="VeryLazy",
+},
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -141,6 +150,8 @@ require("lazy").setup({
   --
   {
     "folke/trouble.nvim",
+event="VeryLazy",
+
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require 'nvim-web-devicons'.setup {}
@@ -177,23 +188,37 @@ require("lazy").setup({
   --     end
   -- },
   -- Plug 'tpope/vim-surround'
-  { 'fsouza/prettierd' },
-  {'mbbill/undotree', 
+  { 'fsouza/prettierd',
+event="VeryLazy",
+
+  },
+  {'mbbill/undotree',
+event="VeryLazy",
+
     config = function()
       vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<cr>')
     end
   },
-  { "jose-elias-alvarez/null-ls.nvim", dependencies = { 'nvim-lua/plenary.nvim' } },
-  { 'wakatime/vim-wakatime' },
+  { "jose-elias-alvarez/null-ls.nvim", 
+event="VeryLazy",
+
+  dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'wakatime/vim-wakatime',
+event="VeryLazy",
+
+  },
   -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
   -- Dev Tools
   -- Not working properly
   {
     'Equilibris/nx.nvim',
+event="VeryLazy",
+
     dependencies = 'nvim-telescope/telescope.nvim',
     opts = {}
   },
-  { 'folke/neodev.nvim',           opts = {} },
+  { 'folke/neodev.nvim',  event="VeryLazy",
+         opts = {} },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -203,6 +228,8 @@ require("lazy").setup({
   -- init.lua
   {
     'darksinge/plink.nvim',
+event="VeryLazy",
+
     -- commit = '4e62e47',
     dependencies = {
       'nvim-lua/plenary.nvim',

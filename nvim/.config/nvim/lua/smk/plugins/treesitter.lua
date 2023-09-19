@@ -1,68 +1,98 @@
-
-  return { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    config = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-
-    config = function()
-local opt = vim.opt
-
--- require 'nvim-treesitter.install'.compilers = {"zig"}
--- require 'nvim-treesitter.install'.compilers = {"cmake"}
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"html", "javascript", "typescript", "css" },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false
+return { -- Highlight, edit, and navigate code
+  'nvim-treesitter/nvim-treesitter',
+  dependencies = {
+    'nvim-treesitter/nvim-treesitter-textobjects',
   },
-  indent = {enable = true},
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
-  },
-  playground = {
-    enable = true,
-    disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-    persist_queries = false, -- Whether the query persists across vim sessions
-  },
+  config = function()
+    pcall(require('nvim-treesitter.install').update { with_sync = true })
+  end,
 
-textobjects = {
-    move = {
-      enable = true,
-      set_jumps = true,
+  config = function()
+    local opt = vim.opt
 
-      goto_next_start = {
-        -- ["]p"] = "@parameter.inner",
-        -- ["]m"] = "@function.outer",
-        -- ["]]"] = "@class.outer",
+    -- require 'nvim-treesitter.install'.compilers = {"zig"}
+    -- require 'nvim-treesitter.install'.compilers = {"cmake"}
+    require 'nvim-treesitter.configs'.setup {
+      ensure_installed = { "html", "javascript", "typescript", "css" },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false
       },
-      -- goto_next_end = {
-      --   ["]M"] = "@function.outer",
-      --   ["]["] = "@class.outer",
-      -- },
-      -- goto_previous_start = {
-      --   ["[p"] = "@parameter.inner",
-      --   ["[m"] = "@function.outer",
-      --   ["[["] = "@class.outer",
-      -- },
-      -- goto_previous_end = {
-      --   ["[M"] = "@function.outer",
-      --   ["[]"] = "@class.outer",
-      -- },
-    },
-  }
+      indent = { enable = true },
+      rainbow = {
+        enable = true,
+        -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+        extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+        max_file_lines = nil, -- Do not enable for files with more than n lines, int
+        -- colors = {}, -- table of hex strings
+        -- termcolors = {} -- table of colour name strings
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = '<C-space>',
+          node_incremental = '<C-space>',
+          scope_incremental = '<C-s>',
+          node_decremental = '<M-space>',
+        },
+      },
+      playground = {
+        enable = true,
+        disable = {},
+        updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
+        persist_queries = false, -- Whether the query persists across vim sessions
+      },
+
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            ['aa'] = '@parameter.outer',
+            ['ia'] = '@parameter.inner',
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ac'] = '@class.outer',
+            ['ic'] = '@class.inner',
+          },
+        },
+        move = {
+          enable = true,
+          set_jumps = true,
+
+          goto_next_start = {
+            ["]p"] = "@parameter.inner",
+            ["]m"] = "@function.outer",
+            ["]]"] = "@class.outer",
+          },
+          goto_next_end = {
+            ["]M"] = "@function.outer",
+            ["]["] = "@class.outer",
+          },
+          goto_previous_start = {
+            ["[p"] = "@parameter.inner",
+            ["[m"] = "@function.outer",
+            ["[["] = "@class.outer",
+          },
+          goto_previous_end = {
+            ["[M"] = "@function.outer",
+            ["[]"] = "@class.outer",
+          },
+        },
+        swap = {
+          enable = true,
+          swap_next = {
+            ['<leader>a'] = '@parameter.inner',
+          },
+          swap_previous = {
+            ['<leader>A'] = '@parameter.inner',
+          },
+        },
+      },
+    }
+  end,
 }
-    end,
-  }
 
 
 
