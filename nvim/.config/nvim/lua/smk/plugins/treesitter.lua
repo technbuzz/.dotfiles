@@ -2,6 +2,7 @@ return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    'p00f/nvim-ts-rainbow',
   },
   config = function()
     pcall(require('nvim-treesitter.install').update { with_sync = true })
@@ -44,6 +45,15 @@ return { -- Highlight, edit, and navigate code
       },
 
       textobjects = {
+        lsp_interop = {
+          enable = true,
+          border = 'none',
+          floating_preview_opts = {},
+          peek_definition_code = {
+            ["<leader>pf"] = "@function.outer",
+            ["<leader>pF"] = "@class.outer",
+          },
+        },
         select = {
           enable = true,
           lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
