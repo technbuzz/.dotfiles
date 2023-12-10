@@ -72,8 +72,10 @@ require("lazy").setup({
     -- Uncomment next line if you want to follow only stable versions
     -- version = "*"
   },
+
   {
     'ThePrimeagen/harpoon',event="VeryLazy",
+    branch = "harpoon2",
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
       menu = {
@@ -81,11 +83,10 @@ require("lazy").setup({
       }
     },
     config = function()
-      local mark = require("harpoon.mark")
-      local ui = require("harpoon.ui")
+      local harpoon = require("harpoon")
 
-      vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "[A]dd File Mark" })
-      vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu, { desc = "View All Project Marks" })
+      vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "[A]dd File Mark" })
+      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "View All Project Marks" })
     end,
   },
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.

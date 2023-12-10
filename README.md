@@ -2,6 +2,7 @@
 Currently Included Neovim configuration, OhmyPush Config.
 Eventually it will contain configuration for the tools used in development. This repository is place to make them shareable.
 
+Link to [SFMono Nerd Font Ligatureized](https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized)
 
 # Help to config nvim further
 Learn more about Lua. Screenshot taken from John McBride talk [Nvimconf 2020 video](https://youtu.be/z9SuyhSHOWs?t=12222)
