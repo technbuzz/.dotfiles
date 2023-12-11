@@ -15,13 +15,17 @@ alias gri="git rebase --interactive"
 alias gbd="git branch --delete"
 autoload -Uz compinit && compinit
 
-
 # Bring ls alias
 alias lsa="ls -l -a -G" #lists all the files, including hidden with dir colors
 
 alias lg="lazygit"
 alias zl="zellij"
 alias zla="zellij attach"
+
+# Zsh-z jump quickly to directory
+source ~/.zsh/zsh-z/zsh-z.plugin.zsh
+# for zsh-z tab to work
+autoload -U compinit; compinit
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # we need to fix for windows
