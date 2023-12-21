@@ -28,11 +28,14 @@ require("neo-tree").setup({
         ['np'] = 'format_file',
         ['ny'] = 'yank_files',
         ['nt'] = 'search_by_dir',
+        ['nfz'] = 'fuzzy_search_by_dir',
       }
     },
     commands = {
       touch_files = function(state)
         local node = state.tree:get_node()
+        -- get relative path from node not absolute path
+        local path = node:get_id()
         local id = node:get_id()
         vim.api.nvim_input(":!touch " .. id .. "<Home>")
         -- P(node)
@@ -50,15 +53,31 @@ require("neo-tree").setup({
       yank_files = function(state)
         local node = state.tree:get_node()
         local id = node:get_id()
-        vim.api.nvim_input(":!cp -R " .. id .. "<End>" )
+        vim.api.nvim_input(":!cp -R " .. id .. "<End>")
       end,
 
       search_by_dir = function(state)
         local node = state.tree:get_node()
         local id = node:get_id()
-        vim.api.nvim_command("Telescope find_files search_dirs=".. id)
+        -- Gives use relative path from CWD
+        -- more options here https://github.com/nvim-neo-tree/neo-tree.nvim/discussions/370#discussioncomment-6372404
+        local modifyPath = vim.fn.fnamemodify(id, ":.")
+        -- P(id)
+        require("telescope.builtin").find_files({
+          search_dirs = { id },
+          prompt_title = modifyPath,
+        })
+      end,
+
+      fuzzy_search_by_dir = function(state)
+        local node = state.tree:get_node()
+        local id = node:get_id()
+        local modifyPath = vim.fn.fnamemodify(id, ":.")
+        require("telescope.builtin").live_grep({
+          search_dirs = { id },
+          prompt_title = modifyPath
+        })
         P(id)
-        P("Telescope find_files search_dirs=".. id)
       end
     }
   }

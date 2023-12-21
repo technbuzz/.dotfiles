@@ -50,7 +50,7 @@ require("lazy").setup({
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    -- branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "DavidBabel/vscode-simpler-icons",
@@ -61,7 +61,7 @@ require("lazy").setup({
   --{ 'akinsho/toggleterm.nvim', version = '*' },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', event="VeryLazy",  opts = {} },
+  { 'numToStr/Comment.nvim',     event = "VeryLazy", opts = {} },
 
   -- add annotations currently the key nf collides with
   -- neotree <leader>n
@@ -74,7 +74,8 @@ require("lazy").setup({
   },
 
   {
-    'ThePrimeagen/harpoon',event="VeryLazy",
+    'ThePrimeagen/harpoon',
+    event = "VeryLazy",
     branch = "harpoon2",
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
@@ -86,7 +87,8 @@ require("lazy").setup({
       local harpoon = require("harpoon")
 
       vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "[A]dd File Mark" })
-      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "View All Project Marks" })
+      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+        { desc = "View All Project Marks" })
     end,
   },
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -95,7 +97,7 @@ require("lazy").setup({
   {
     'nvim-telescope/telescope-fzf-native.nvim',
 
-    event="VeryLazy",
+    event = "VeryLazy",
     -- NOTE: If you are having trouble with this installation,
     --       refer to the README for telescope-fzf-native for more instructions.
     build = 'make',
@@ -109,7 +111,7 @@ require("lazy").setup({
   --
   {
     'Exafunction/codeium.vim',
-    event="VeryLazy",
+    event = "VeryLazy",
 
     config = function()
       vim.keymap.set("i", "<C-l>", function() return vim.fn['codeium#Accept']() end, { expr = true })
@@ -119,7 +121,7 @@ require("lazy").setup({
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
-event="VeryLazy",
+    event = "VeryLazy",
 
     dependencies = "nvim-treesitter/nvim-treesitter",
     -- ignore certain file types
@@ -129,8 +131,8 @@ event="VeryLazy",
     --   end
     -- }
   },
-  { 'mattn/emmet-vim', event="VeryLazy",
-},
+  { 'mattn/emmet-vim', event = "VeryLazy",
+  },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -151,7 +153,7 @@ event="VeryLazy",
   --
   {
     "folke/trouble.nvim",
-event="VeryLazy",
+    event = "VeryLazy",
 
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
@@ -189,23 +191,28 @@ event="VeryLazy",
   --     end
   -- },
   -- Plug 'tpope/vim-surround'
-  { 'fsouza/prettierd',
-event="VeryLazy",
+  {
+    'fsouza/prettierd',
+    event = "VeryLazy",
 
   },
-  {'mbbill/undotree',
-event="VeryLazy",
+  {
+    'mbbill/undotree',
+    event = "VeryLazy",
 
     config = function()
       vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<cr>')
     end
   },
-  { "jose-elias-alvarez/null-ls.nvim", 
-event="VeryLazy",
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = "VeryLazy",
 
-  dependencies = { 'nvim-lua/plenary.nvim' } },
-  { 'wakatime/vim-wakatime',
-event="VeryLazy",
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  {
+    'wakatime/vim-wakatime',
+    event = "VeryLazy",
 
   },
   -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
@@ -213,13 +220,16 @@ event="VeryLazy",
   -- Not working properly
   {
     'Equilibris/nx.nvim',
-event="VeryLazy",
+    event = "VeryLazy",
 
     dependencies = 'nvim-telescope/telescope.nvim',
     opts = {}
   },
-  { 'folke/neodev.nvim',  event="VeryLazy",
-         opts = {} },
+  {
+    'folke/neodev.nvim',
+    event = "VeryLazy",
+    opts = {}
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -229,7 +239,7 @@ event="VeryLazy",
   -- init.lua
   {
     'darksinge/plink.nvim',
-event="VeryLazy",
+    event = "VeryLazy",
 
     -- commit = '4e62e47',
     dependencies = {
