@@ -1,5 +1,3 @@
-require('keymaps')
--- require('./lazyplugs')
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -13,12 +11,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup("plugins")
--- require('plug-config/nx-config')
--- require('theme-config')
--- require('plug-config/gruvbox-config')
--- require('plug-config/nvimtree-config')
-require('plug-config/neotree-config')
---require('plug-config/toggleterm-config')
-require('plug-config/null-ls-config')
--- require('ts-config')

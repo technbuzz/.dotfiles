@@ -1,17 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
+return {
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
@@ -191,11 +178,7 @@ require("lazy").setup({
   --     end
   -- },
   -- Plug 'tpope/vim-surround'
-  {
-    'fsouza/prettierd',
-    event = "VeryLazy",
-
-  },
+  { 'fsouza/prettierd', event = "VeryLazy", },
   {
     'mbbill/undotree',
     event = "VeryLazy",
@@ -210,11 +193,7 @@ require("lazy").setup({
 
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
-  {
-    'wakatime/vim-wakatime',
-    event = "VeryLazy",
-
-  },
+  { 'wakatime/vim-wakatime', event = "VeryLazy", },
   -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
   -- Dev Tools
   -- Not working properly
@@ -248,10 +227,6 @@ require("lazy").setup({
       'MunifTanjim/nui.nvim',
     },
   },
-  require 'smk.plugins.cmp',
-  require 'smk.plugins.lsp',
-  require 'smk.plugins.treesitter',
-  require 'smk.plugins.telescope',
   -- require 'smk.plugins.null-ls',
   -- require 'kickstart.plugins.debug',
 
@@ -264,4 +239,4 @@ require("lazy").setup({
   --    An additional note is that if you only copied in the `init.lua`, you can just comment this line
   --    to get rid of the warning telling you that there are not plugins in `lua/custom/plugins/`.
   { import = 'custom.plugins' },
-})
+}
