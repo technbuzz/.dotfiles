@@ -4,11 +4,9 @@ return { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter-textobjects',
     -- 'p00f/nvim-ts-rainbow',
   },
-  config = function()
-    pcall(require('nvim-treesitter.install').update { with_sync = true })
-  end,
 
   config = function()
+    pcall(require('nvim-treesitter.install').update { with_sync = true })
     local opt = vim.opt
 
     -- require 'nvim-treesitter.install'.compilers = {"zig"}

@@ -11,7 +11,6 @@ return {
 
   { 'xiyaowong/transparent.nvim' },
 
-  -- { 'kyazdani42/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons' } },
   {
     'nvim-lualine/lualine.nvim',
     event = "VeryLazy",

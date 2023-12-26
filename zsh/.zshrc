@@ -1,8 +1,10 @@
+export STARSHIP_CONFIG=~/.dotfiles/starship/.config/starship/starship.toml
+
 eval "$(starship init zsh)"
 export HOMEBREW_GITHUB_API_TOKEN=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
 
 # Brings the Git autocomplete
- . /opt/homebrew/etc/profile.d/z.sh
+ # . /opt/homebrew/etc/profile.d/z.sh
 
 alias gb="git branch"
 alias gl="git log"
@@ -31,9 +33,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # we need to fix for windows
 # source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
 export PNPM_HOME="/Users/sami.ullah1/Library/pnpm"
@@ -42,3 +41,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
