@@ -84,5 +84,5 @@ require("neo-tree").setup({
 })
 
 -- keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
-vim.keymap.set("n", "<C-b>", ":NeoTreeRevealToggle<cr>")
-vim.keymap.set("n", "<leader>n", ":NeoTreeFocus<cr>")
+vim.keymap.set("n", "<C-b>", ":Neotree toggle<cr>")
+vim.keymap.set("n", "<leader>n", ":Neotree focus<cr>")

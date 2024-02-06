@@ -95,15 +95,19 @@ return {
   },
   -- Lazy
   --
+  -- {
+  --   'Exafunction/codeium.vim',
+  --   event = "VeryLazy",
+  --
+  --   config = function()
+  --     vim.keymap.set("i", "<C-l>", function() return vim.fn['codeium#Accept']() end, { expr = true })
+  --     -- vim.keymap.set("i", "<C-;>", function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+  --     -- vim.keymap.set("i", "<C-,>", function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+  --   end
+  -- },
   {
-    'Exafunction/codeium.vim',
-    event = "VeryLazy",
-
-    config = function()
-      vim.keymap.set("i", "<C-l>", function() return vim.fn['codeium#Accept']() end, { expr = true })
-      -- vim.keymap.set("i", "<C-;>", function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-      -- vim.keymap.set("i", "<C-,>", function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-    end
+    "sourcegraph/sg.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
