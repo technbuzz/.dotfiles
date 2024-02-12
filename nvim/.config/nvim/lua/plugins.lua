@@ -44,7 +44,6 @@ return {
       "MunifTanjim/nui.nvim",
     }
   },
-  --{ 'akinsho/toggleterm.nvim', version = '*' },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',     event = "VeryLazy", opts = {} },
@@ -95,20 +94,20 @@ return {
   },
   -- Lazy
   --
-  -- {
-  --   'Exafunction/codeium.vim',
-  --   event = "VeryLazy",
-  --
-  --   config = function()
-  --     vim.keymap.set("i", "<C-l>", function() return vim.fn['codeium#Accept']() end, { expr = true })
-  --     -- vim.keymap.set("i", "<C-;>", function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-  --     -- vim.keymap.set("i", "<C-,>", function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-  --   end
-  -- },
   {
-    "sourcegraph/sg.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+    'Exafunction/codeium.vim',
+    event = "VeryLazy",
+
+    config = function()
+      vim.keymap.set("i", "<C-l>", function() return vim.fn['codeium#Accept']() end, { expr = true })
+      -- vim.keymap.set("i", "<C-;>", function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+      -- vim.keymap.set("i", "<C-,>", function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+    end
   },
+  -- {
+  --   "sourcegraph/sg.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+  -- },
   {
     'nvim-treesitter/nvim-treesitter-context',
     event = "VeryLazy",
@@ -121,8 +120,7 @@ return {
     --   end
     -- }
   },
-  { 'mattn/emmet-vim', event = "VeryLazy",
-  },
+  { 'mattn/emmet-vim', event = "VeryLazy", },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -141,6 +139,7 @@ return {
   --   "folke/flash.nvim",
   -- },
   --
+  { 'subnut/nvim-ghost.nvim' },
   {
     "folke/trouble.nvim",
     event = "VeryLazy",
@@ -181,7 +180,7 @@ return {
   --     end
   -- },
   -- Plug 'tpope/vim-surround'
-  { 'fsouza/prettierd', event = "VeryLazy", },
+  -- { 'fsouza/prettierd', event = "VeryLazy", },
   {
     'mbbill/undotree',
     event = "VeryLazy",
@@ -190,12 +189,11 @@ return {
       vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<cr>')
     end
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy",
-
-    dependencies = { 'nvim-lua/plenary.nvim' }
-  },
+  -- {
+  --   event = "VeryLazy",
+  --
+  --   dependencies = { 'nvim-lua/plenary.nvim' }
+  -- },
   { 'wakatime/vim-wakatime', event = "VeryLazy", },
   -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
   -- Dev Tools
@@ -230,7 +228,6 @@ return {
       'MunifTanjim/nui.nvim',
     },
   },
-  -- require 'smk.plugins.null-ls',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
