@@ -62,20 +62,18 @@ return { -- LSP Configuration & Plugins
 
 
       local range_formatting = function()
-          local start_row, _ = unpack(vim.api.nvim_buf_get_mark(0, "<"))
-          local end_row, _ = unpack(vim.api.nvim_buf_get_mark(0, ">"))
-          vim.lsp.buf.format({
-              range = {
-                  ["start"] = { start_row, 0 },
-                  ["end"] = { end_row, 0 },
-              },
-              async = true,
-          })
+        local start_row, _ = unpack(vim.api.nvim_buf_get_mark(0, "<"))
+        local end_row, _ = unpack(vim.api.nvim_buf_get_mark(0, ">"))
+        vim.lsp.buf.format({
+          range = {
+            ["start"] = { start_row, 0 },
+            ["end"] = { end_row, 0 },
+          },
+          async = true,
+        })
       end
 
       vim.keymap.set("v", "<leader>f", range_formatting, { desc = "Range Formatting" })
-
-
     end
 
     -- Enable the following language servers
@@ -92,15 +90,23 @@ return { -- LSP Configuration & Plugins
 
 
       lua_ls = {
-        Lua = {
-          workspace = { checkThirdParty = false },
-          telemetry = { enable = false },
-        },
+        settings = {
+          Lua = {
+            workspace = { 
+              checkThirdParty = false,
+              -- Tells lua_ls where to find all the Lua files that you have loaded
+              -- fo ryou neovim configuration
+              library = {
+                '${3rd}/luv/library',
+                unpack(vim.api.nvim_get_runtime_file('', true)),
+                vim.api.nvim_get_proc
+              },
+            },
+            telemetry = { enable = false },
+          },
+        }
       },
     }
-
-
-
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -111,7 +117,8 @@ return { -- LSP Configuration & Plugins
 
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    capabilities = vim.tbl_deep_extend("force", capabilities, require('cmp_nvim_lsp').default_capabilities(capabilities))
 
     -- configure html server
     lspconfig["html"].setup({

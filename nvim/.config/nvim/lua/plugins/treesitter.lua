@@ -1,5 +1,6 @@
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
+  event = "VeryLazy",
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
     -- 'p00f/nvim-ts-rainbow',
@@ -88,16 +89,16 @@ return { -- Highlight, edit, and navigate code
             ["[]"] = "@class.outer",
           },
         },
+        swap = {
+          enable = true,
         -- conflicts with harpoon
-        -- swap = {
-        --   enable = true,
         --   swap_next = {
         --     ['<leader>a'] = '@parameter.inner',
         --   },
-        --   swap_previous = {
-        --     ['<leader>A'] = '@parameter.inner',
-        --   },
-        -- },
+          swap_previous = {
+            ['<leader>A'] = '@parameter.inner',
+          },
+        },
       },
     }
   end,

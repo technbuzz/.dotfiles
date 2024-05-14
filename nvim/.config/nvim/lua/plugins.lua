@@ -9,8 +9,9 @@ return {
     end,
   },
 
-  { 'xiyaowong/transparent.nvim' },
-
+  { 
+    'xiyaowong/transparent.nvim', 
+    event = "VeryLazy" },
   {
     'nvim-lualine/lualine.nvim',
     event = "VeryLazy",
@@ -36,6 +37,7 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
+    event = "VeryLazy",
     -- branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -120,7 +122,7 @@ return {
     --   end
     -- }
   },
-  { 'mattn/emmet-vim', event = "VeryLazy", },
+  -- { 'mattn/emmet-vim', event = "VeryLazy", },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -135,6 +137,7 @@ return {
       },
     },
   },
+  { 'tpope/vim-fugitive', event = "VeryLazy", },
   -- { doesn't works properly need to hceck the plugin docs
   --   "folke/flash.nvim",
   -- },
@@ -179,8 +182,22 @@ return {
   --       )
   --     end
   -- },
-  -- Plug 'tpope/vim-surround'
-  -- { 'fsouza/prettierd', event = "VeryLazy", },
+  -- MISC
+  {
+    -- mini surround
+    'echasnovski/mini.nvim',
+    event = "VeryLazy",
+    config = function()
+
+       -- Add/delete/replace surroundings (brackets, quotes, etc.)
+      --
+      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+      -- - sd'   - [S]urround [D]elete [']quotes
+      -- - sr)'  - [S]urround [R]eplace [)] [']
+      require('mini.surround').setup()
+    end
+
+  },
   {
     'mbbill/undotree',
     event = "VeryLazy",
@@ -189,6 +206,11 @@ return {
       vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<cr>')
     end
   },
+  {
+    'folke/todo-comments.nvim',
+    dependencies = 'nvim-lua/plenary.nvim',
+    opts = {},
+    event = "VeryLazy", },
   -- {
   --   event = "VeryLazy",
   --

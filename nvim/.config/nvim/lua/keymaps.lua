@@ -17,12 +17,9 @@ keymap("i", "<C-s>", "<Esc><cmd>:update<CR>", opts)
 keymap("i", "jk", "<Esc>", opts)
 keymap("t", "jk", "<C-\\><C-n>", opts)
 
--- hard to type : because it requires using shift
--- so rather than moving your pinkie pressing ; is much easier
-keymap("n", ";", ":", opts)
 
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
--- keymap("v", "K", ":m '>-2<CR>gv=gv", opts)
+keymap("v", "K", ":m '>-2<CR>gv=gv", opts)
 
 
 -- Join line without jumping the cursor
