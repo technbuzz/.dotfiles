@@ -142,7 +142,7 @@ return {
   --   "folke/flash.nvim",
   -- },
   --
-  { 'subnut/nvim-ghost.nvim' },
+  -- { 'subnut/nvim-ghost.nvim' },
   {
     "folke/trouble.nvim",
     event = "VeryLazy",
