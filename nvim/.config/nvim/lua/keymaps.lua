@@ -17,10 +17,9 @@ keymap("i", "<C-s>", "<Esc><cmd>:update<CR>", opts)
 keymap("i", "jk", "<Esc>", opts)
 keymap("t", "jk", "<C-\\><C-n>", opts)
 
-
+-- Move selected text up and down
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '>-2<CR>gv=gv", opts)
-
 
 -- Join line without jumping the cursor
 keymap("n", "J", "mzJ`z", opts)
@@ -54,9 +53,6 @@ keymap( "s", "<S-Tab>", [[vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-T
 
 --  TODO README FIX THE INCONSISTENCY OF USING SET
 -- Diagnostics
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Custom Mapping for Angular and stuff
@@ -76,7 +72,8 @@ end
 
 -- Plug dev, saves and sources current file
 keymap("n", "<leader><leader>x", saveExec(), opts)
-keymap("n", "<leader>t", "<Plug>PlenaryTestFile", opts)
+-- commented as it clashed with <leader>th inlay hints
+-- keymap("n", "<leader>t", "<Plug>PlenaryTestFile", opts)
 
 
 -- Resize with arrows

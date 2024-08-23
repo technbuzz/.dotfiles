@@ -9,9 +9,10 @@ return {
     end,
   },
 
-  { 
-    'xiyaowong/transparent.nvim', 
-    event = "VeryLazy" },
+  {
+    'xiyaowong/transparent.nvim',
+    event = "VeryLazy"
+  },
   {
     'nvim-lualine/lualine.nvim',
     event = "VeryLazy",
@@ -47,8 +48,6 @@ return {
     }
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',     event = "VeryLazy", opts = {} },
 
   -- add annotations currently the key nf collides with
   -- neotree <leader>n
@@ -137,7 +136,7 @@ return {
       },
     },
   },
-  { 'tpope/vim-fugitive', event = "VeryLazy", },
+  { 'tpope/vim-fugitive',    event = "VeryLazy", },
   -- { doesn't works properly need to hceck the plugin docs
   --   "folke/flash.nvim",
   -- },
@@ -188,8 +187,7 @@ return {
     'echasnovski/mini.nvim',
     event = "VeryLazy",
     config = function()
-
-       -- Add/delete/replace surroundings (brackets, quotes, etc.)
+      -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
@@ -210,7 +208,8 @@ return {
     'folke/todo-comments.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
     opts = {},
-    event = "VeryLazy", },
+    event = "VeryLazy",
+  },
   -- {
   --   event = "VeryLazy",
   --
@@ -226,6 +225,18 @@ return {
 
     dependencies = 'nvim-telescope/telescope.nvim',
     opts = {}
+  },
+  {
+    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+    -- used for completion, annotations and signatures of Neovim apis
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+      },
+    },
   },
   {
     'folke/neodev.nvim',
