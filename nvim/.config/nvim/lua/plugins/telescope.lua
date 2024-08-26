@@ -63,7 +63,8 @@ return-- Fuzzy Finder (files, lsp, etc)
     end, { desc = '[/] Fuzzily search in current buffer' })
 
     keymap("n", "<leader>pf", builtin.find_files, opts)
-    keymap("n", "<leader>en", "<cmd>Telescope find_files cwd=~/AppData/local/nvim<cr>", opts)
+    -- How to link to custom directory using telescope
+    -- keymap("n", "<leader>en", "<cmd>Telescope find_files cwd=~/AppData/local/nvim<cr>", opts)
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>fb', function()
