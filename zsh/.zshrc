@@ -34,11 +34,10 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
-# pnpm
-export PNPM_HOME="/Users/sami.ullah1/Library/pnpm"
+# # pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
