@@ -1,12 +1,24 @@
 return {
+  -- {
+  --   -- Theme inspired by Atom
+  --   'navarasu/onedark.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'onedark'
+  --   end,
+  -- },
+
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    -- from 29-October-2024
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+    opts = {},
+    -- config = function()
+    --   vim.cmd.colorscheme 'tokyonight-light'
+    -- end,
   },
 
   {
@@ -72,7 +84,7 @@ return {
     config = function()
       local harpoon = require("harpoon")
 
-      vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "[A]dd File Mark" })
+      vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "[A]dd File Mark" })
       vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
         { desc = "View All Project Marks" })
     end,
@@ -101,8 +113,8 @@ return {
 
     config = function()
       vim.keymap.set("i", "<C-l>", function() return vim.fn['codeium#Accept']() end, { expr = true })
-      -- vim.keymap.set("i", "<C-;>", function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-      -- vim.keymap.set("i", "<C-,>", function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+      vim.keymap.set("i", "<C-n>", function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+      vim.keymap.set("i", "<C-p>", function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
     end
   },
   -- {
@@ -219,13 +231,13 @@ return {
   -- Plug '~/desktop/practice/deleteme/nvim-plugins/ngutils.nvim'
   -- Dev Tools
   -- Not working properly
-  {
-    'Equilibris/nx.nvim',
-    event = "VeryLazy",
-
-    dependencies = 'nvim-telescope/telescope.nvim',
-    opts = {}
-  },
+  -- {
+  --   'Equilibris/nx.nvim',
+  --   event = "VeryLazy",
+  --
+  --   dependencies = 'nvim-telescope/telescope.nvim',
+  --   opts = {}
+  -- },
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -249,6 +261,12 @@ return {
   --       Uncomment any of the lines below to enable them.
   { dir = "~/practice/noonx" },
   { dir = "~/Dev/playground/noonx" },
+  { dir = "~/.dotfiles/nvim/.config/nvim/lua/custom/present.nvim", config = function() 
+
+    require "present"
+
+  end
+  },
   -- init.lua
   {
     'darksinge/plink.nvim',
