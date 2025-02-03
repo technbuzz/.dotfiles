@@ -34,23 +34,10 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
-# pnpm
-export PNPM_HOME="/Users/sami.ullah1/Library/pnpm"
+# # pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-. "/Users/sami.ullah1/.deno/env"
-# bun completions
-[ -s "/Users/sami.ullah1/.bun/_bun" ] && source "/Users/sami.ullah1/.bun/_bun"
-
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
