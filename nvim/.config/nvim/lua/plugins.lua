@@ -259,8 +259,8 @@ return {
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  { dir = "~/practice/noonx" },
-  { dir = "~/Dev/playground/noonx" },
+  -- { dir = "~/practice/noonx" },
+  -- { dir = "~/Dev/playground/noonx" },
   { dir = "~/.dotfiles/nvim/.config/nvim/lua/custom/present.nvim", config = function() 
 
     require "present"
