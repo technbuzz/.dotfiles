@@ -102,7 +102,7 @@ return { -- LSP Configuration & Plugins
       -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
-      -- tsserver = {},
+      -- ts_ls = {},
 
 
       lua_ls = {
@@ -158,7 +158,7 @@ return { -- LSP Configuration & Plugins
     end
 
     -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
+    lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
       commands = {
