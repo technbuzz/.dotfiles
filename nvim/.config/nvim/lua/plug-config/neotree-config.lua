@@ -28,7 +28,7 @@ require("neo-tree").setup({
         ['np'] = 'format_file',
         ['ny'] = 'yank_files',
         ['nt'] = 'search_by_dir',
-        ['nfz'] = 'fuzzy_search_by_dir',
+        ['nzf'] = 'fuzzy_search_by_dir',
       }
     },
     commands = {

@@ -24,6 +24,8 @@ alias lg="lazygit"
 alias zl="zellij"
 alias zla="zellij attach"
 
+alias ask="cody chat -m"
+
 # Zsh-z jump quickly to directory
 source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 # for zsh-z tab to work
