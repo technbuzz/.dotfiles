@@ -75,7 +75,8 @@ require("neo-tree").setup({
         local modifyPath = vim.fn.fnamemodify(id, ":.")
         require("telescope.builtin").live_grep({
           search_dirs = { id },
-          prompt_title = modifyPath
+          prompt_title = modifyPath,
+          glob_pattern = "!*.spec.ts"
         })
         P(id)
       end
